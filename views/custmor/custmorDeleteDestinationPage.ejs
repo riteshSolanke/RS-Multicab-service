@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="/custmor/custmorCss/custmorDeleteDestinationPage.css"
+    />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+        <div class="container">
+          <header>
+            <h1>
+              Click the checkbox and submit the button to delete the existing
+              destination
+            </h1>
+            <button id="deleteSelectedDestination">Delete</button>
+          </header>
+
+          <div class="destination_windows"></div>
+        </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

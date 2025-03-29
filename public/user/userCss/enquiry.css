@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main_page {
+  position: relative;
+}
+section {
+  position: absolute;
+  top: 0px;
+}
+
+.enquiry_main_page {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+}
+
+.form_container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.form_container h3 {
+  margin-bottom: 20px;
+  color: #e24d04;
+  font-family: sans-serif;
+  font-weight: 600;
+  width: 300px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+}
+.form_container h3::before {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 3px;
+  background: #e24d04;
+  position: absolute;
+  top: 40%;
+  left: 0px;
+}
+.form_container .form-group {
+  width: 90%;
+  /* border: 2px solid red; */
+}
+
+.form-group label {
+  display: block;
+  margin-left: 5px;
+  padding: 15px;
+  font-weight: 600;
+  color: rgb(97, 92, 92);
+}
+.form-group input {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 15px;
+
+  border: 1px solid gainsboro;
+  /* box-shadow: 3px 2px 0px rgba(0, 0, 0, 0.1); */
+}
+.form-group input:focus {
+  border: 2px solid red;
+  outline: none; /* Removes the default black border */
+}
+
+.form-group select {
+  margin: 10px;
+  padding: 10px;
+}
+
+.form_btn {
+  background-color: orangered;
+  margin: 20px;
+  color: rgb(247, 243, 243);
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form_btn:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+/* info_container */
+
+.info_container {
+  width: 30%;
+}
+.bankInfo_container h3 {
+  width: 100%;
+  line-height: 30px;
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: rgb(64, 64, 67);
+  margin: 0px 20px 20px 0px;
+  padding: 10px;
+}
+
+.bankInfo_container p {
+  color: rgb(64, 61, 61);
+  margin: 10px;
+  padding: 5px;
+  font-size: 17px;
+}
+
+.bankInfo_container img {
+  min-width: 350px;
+  min-height: 300px;
+  border: 1px solid transparent;
+  margin-top: 40px;
+  background-size: contain;
+}

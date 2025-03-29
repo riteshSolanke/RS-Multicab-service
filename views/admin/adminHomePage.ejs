@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/admin/adminCss/adminHomePage.css" />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <body>
+    <div class="main_page">
+      <%- include('partials/asidebar.ejs') %>
+      <div class="page_container">
+        <%- include(`partials/header.ejs`) %>
+
+        <div class="container">
+          <div class="card">
+            <img src="/admin/adminImages/adminHomePage/home.png" alt="error" />
+            <h3><a href="/admin/">Home</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/customers.png"
+              alt="error"
+            />
+            <h3><a href="/admin/custmors">Custmors</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/custmors.png"
+              alt="error"
+            />
+            <h3><a href="/admin/addCustmor">Add Custmor</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/add_drivers.png"
+              alt="error"
+            />
+            <h3><a href="/admin/drivers">Drivers</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/check_payment.png"
+              alt="error"
+            />
+            <h3>
+              <a href="/admin/payment">Payments</a>
+            </h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/control_panel.png"
+              alt="error"
+            />
+            <h3><a href="#">Control Panel</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/reports.png"
+              alt="error"
+            />
+            <h3><a href="#">Reports</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/admin/adminImages/adminHomePage/settings.png"
+              alt="error"
+            />
+            <h3><a href="#">setting</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/admin/adminJs/adminHomePage.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

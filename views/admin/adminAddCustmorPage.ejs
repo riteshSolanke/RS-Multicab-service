@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Customer Information</title>
+    <link rel="stylesheet" href="/admin/adminCss/adminAddCustmorPage.css" />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/asidebar.ejs') %></aside>
+
+      <div class="page_container">
+        <%- include(`partials/header.ejs`) %>
+
+        <div class="form-container">
+          <h2>Add Customer Information</h2>
+          <form
+            id="custmorInfoForm"
+            action="/admin/services/addCustmor"
+            method="post"
+          >
+            <!-- Service Name -->
+            <div class="form-group">
+              <label for="serviceName">Service Name</label>
+              <input
+                type="text"
+                id="serviceName"
+                name="serviceName"
+                placeholder="Enter full service name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="serviceUrlLink"
+                >Enter Your Unique URL for website</label
+              >
+              <input
+                type="text"
+                id="serviceUrlLink"
+                name="serviceUrlLink"
+                placeholder="Enter Your Services URL Link"
+                required
+              />
+            </div>
+
+            <!-- Customer Name -->
+            <div class="form-group">
+              <label for="custmorName"> Name</label>
+              <input
+                type="text"
+                id="custmorName"
+                name="custmorName"
+                placeholder="Enter full custmor name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input type="hidden" name="role" value="custmor" />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+                required
+              />
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone1">Phone Number</label>
+              <input
+                type="tel"
+                id="phone1"
+                name="phone1"
+                placeholder="Enter phone number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone2">Alternate Mobile Number</label>
+              <input
+                type="tel"
+                id="phone2"
+                name="phone2"
+                placeholder="Enter phone number"
+                required
+              />
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea
+                id="address"
+                name="address"
+                rows="3"
+                placeholder="Enter address"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Service Area -->
+            <div class="form-group">
+              <label for="serviceArea">Service Area</label>
+              <select id="serviceArea" name="serviceArea" required>
+                <option value="">-- Select Service Area --</option>
+                <option value="city1">State</option>
+                <option value="city2">All over India</option>
+              </select>
+            </div>
+
+            <!-- Subscription Plan -->
+            <div class="form-group">
+              <label for="subscriptionPlan">Subscription Plan</label>
+              <select id="subscriptionPlan" name="subscriptionPlan" required>
+                <option value="">-- Select Subscription Plan --</option>
+                <option value="free">Trial</option>
+                <option value="premium">Premium</option>
+              </select>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+              <label for="status">Account Status</label>
+              <select id="status" name="status" required>
+                <option value="">-- Select Account Status --</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+            <!-- Submit Button -->
+            <button type="submit">Add Customer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/admin/adminJs/adminAddCustmorPage.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

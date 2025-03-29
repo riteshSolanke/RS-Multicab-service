@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .header {
+        /* width: calc(100vw- 250px); */
+        /* width: 100%; */
+        min-width: 60px;
+        max-height: 60px;
+        background-color: #ecf0f1;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+      }
+      .header h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #34495e;
+      }
+      .header-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .btn,
+      form .btn {
+        padding: 10px 15px;
+        background-color: #e74c3c;
+
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .btn a {
+        color: white;
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+      .btn:hover,
+      form .btn:hover {
+        background-color: #c0392b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1><%= locals.headingName %></h1>
+      <div class="header-actions">
+        <% if (locals.headingName === "Dashboard") { %>
+        <form action="/unauth/logout" method="POST" style="display: inline">
+          <button class="btn" type="submit">Logout</button>
+        </form>
+        <% } %> <% if (locals.custmorInfo && locals.custmorInfo.id) { %>
+        <button class="btn">
+          <a href="/custmor/"> Home</a>
+        </button>
+
+        <button class="btn">
+          <a href="/<%= locals.custmorInfo.serviceUrlLink %>">View Website</a>
+        </button>
+        <% } %>
+      </div>
+    </header>
+  </body>
+</html>

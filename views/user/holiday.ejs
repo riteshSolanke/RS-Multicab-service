@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/user/userCss/holiday.css" />
+    <!-- <style>
+      .destination_windows{
+        width: 90%;
+      margin: 40px auto;
+       
+        display: flex;
+
+      }
+      .destination_windows> div{
+        width: 30%;
+        height: 300px;
+        /* border: 2px solid violet; */
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;  
+      }
+      .destination_windows div figure{
+        width: 100%;
+
+      }
+      .destination_windows div figure img {
+        width: 100%;
+        height: 100%;
+      }
+      .destination_windows div .innerDiv{
+        position: absolute;
+        top: 60px;
+        right: 32px;
+        background-color: rgb(195, 102, 117);
+        color: white;
+        padding: 10px;
+        border: 1px solide transparent;
+
+      }
+      .destination_windows div .innerDiv a{
+        text-decoration: none;
+        color: white;
+        font-weight: 800;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="main_page">
+      <!-- navbar -->
+      <nav><%- include('partials/navbar') %></nav>
+      <section><%- include('partials/upSection') %></section>
+
+      <!-- page content -->
+      <div class="destination_windows">
+
+        <% destinationInfo.forEach(destination => { %>
+
+          <div><figure>
+            <img src="<%= destination.destinationImg%>" alt="">
+            <div class="innerDiv"><a href="/<%= custmorInfo.serviceUrlLink %>/dynamic/<%= destination._id %>"><%= destination.destinationName %></a></div>
+                     </figure></div>
+         
+        <% }) %>
+
+
+
+      </div>
+      <!-- footer -->
+      <footer><%- include('partials/footer') %></footer>
+    </div>
+    <script src="/user/userJs/holiday.js"></script>
+  </body>
+</html>

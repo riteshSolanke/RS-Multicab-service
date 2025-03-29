@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .main_page {
+  border: 2px solid red;
+} */
+
+/* recently created window */
+h2 {
+  margin: 20px;
+  padding: 10px;
+}
+
+
+
+.destination_windows {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.destination_windows figure {
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+}
+
+figure > img {
+  height: 200px;
+  border: 2px solid transparent;
+  background-color: white;
+  padding: 5px;
+  /* box-shadow: 2px 2px 5px gray; */
+}
+
+figure > div > a {
+  text-decoration: none;
+  color: wheat;
+  font-weight: 700;
+  margin: 0 15px;
+  padding: 5px;
+  background-color: palevioletred;
+  text-transform: uppercase;
+  transition: all 0.9s ease-in-out;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+figure > div > a:hover {
+  background-color: pink;
+  color: blueviolet;
+}

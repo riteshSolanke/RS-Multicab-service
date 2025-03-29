@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Successful</title>
+    <link rel="stylesheet" href="/user/userCss/style.css"> <!-- Add this file for styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2ecc71;
+        }
+        .details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .details p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Booking Confirmed! 🎉</h1>
+        <p>Thank you for your payment. Your booking has been confirmed.</p>
+
+        <div class="details">
+            <h3>Booking Details:</h3>
+            <p><strong>Name:</strong> <%= booking.name %></p>
+            <p><strong>Email:</strong> <%= booking.email %></p>
+            <p><strong>Phone:</strong> <%= booking.phone %></p>
+            <p><strong>Destination:</strong> <%= booking.destination %></p>
+            <p><strong>Pick-up Address:</strong> <%= booking.pickUpAddress %></p>
+            <p><strong>Pickup Date:</strong> <%= booking.date %></p>
+            <p><strong>Car:</strong> <%= booking.carName %></p>
+            <p><strong>Total Amount Paid:</strong> $<%= booking.totalAmount %></p>
+        </div>
+
+        <a href="/<%= custmorInfo.serviceUrlLink %>/" class="back-btn">Go to Home</a>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+.main_page {
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+}
+
+.page_container {
+  width: 100%;
+}
+.container {
+  width: 100%;
+  height: 90vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header {
+  background-color: #2a332b;
+  color: white;
+  margin-bottom: 40px;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  position: sticky;
+  top: 0px;
+}
+
+header h1 {
+  margin: 20px;
+  font-size: 24px;
+}
+
+/* Style for the delete button */
+#deleteSelectedDestination {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#deleteSelectedDestination:hover {
+  background-color: #d32f2f;
+}
+
+.destination_windows {
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.destination_windows figure {
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+}
+
+figure > img {
+  height: 200px;
+  width: 200px;
+  border: 2px solid transparent;
+  background-color: white;
+  padding: 5px;
+  /* box-shadow: 2px 2px 5px gray; */
+}
+
+figure {
+  position: relative;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  transform: scale(1.9);
+}
+
+figure > div > a {
+  text-decoration: none;
+  color: wheat;
+  font-weight: 700;
+  margin: 0 15px;
+  padding: 5px;
+  background-color: palevioletred;
+  text-transform: uppercase;
+  transition: all 0.9s ease-in-out;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+figure > div > a:hover {
+  background-color: pink;
+  color: blueviolet;
+}

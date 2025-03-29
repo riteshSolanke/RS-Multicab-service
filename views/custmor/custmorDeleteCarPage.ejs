@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="/custmor/custmorCss/custmorDeleteCarPage.css"
+    />
+  </head>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+        <div class="container">
+          <h1>Delete Existing Car Btn</h1>
+          <div class="carInfoTable">
+            <% if (locals.carInfo && carInfo.length > 0) { %>
+            <% custmorStaticData.carInfo.forEach(carInfo => { %>
+
+            <table id="table">
+              <tr>
+                <td colspan="2" rowspan="2">
+                  <img
+                    src="<%= carInfo.carImage %>"
+                    alt="Car Image"
+                    id="carImg"
+                  />
+                  <h2><%= carInfo.carName %></h2>
+                </td>
+                <td>
+                  <img
+                    src="/custmor/custmorImages/manageCustmorWebsiteImg/seatCapacityLogo.png"
+                    alt="Seats"
+                  />
+                  <p><%= carInfo.seatCapacity %></p>
+                </td>
+                <td>
+                  <img
+                    src="/custmor/custmorImages/manageCustmorWebsiteImg/bagLogo.png"
+                    alt="Bags"
+                  />
+                  <p><%= carInfo.bagCapacity %></p>
+                </td>
+                <td>
+                  <img
+                    src="/custmor/custmorImages/manageCustmorWebsiteImg/acLogo.png"
+                    alt="AC"
+                  />
+                  <p><%= carInfo.isAC %></p>
+                </td>
+                <td>
+                  <img
+                    src="/custmor/custmorImages/manageCustmorWebsiteImg/petLogo.png"
+                    alt="Pet Friendly"
+                  />
+                  <p><%= carInfo.petAllowed %></p>
+                </td>
+                <td>Rs <%= carInfo.carRent %></td>
+              </tr>
+              <tr>
+                <td colspan="4">
+                  <h3><span>Inclusions:</span> ${car.inclustions}</h3>
+                  <h3><span>Exclusions:</span> ${car.exclustions}</h3>
+                </td>
+                <td>
+                  <button carName="<%= carInfo._id %>">Book Now</button>
+                </td>
+                <td>
+                  <button>
+                    <a href="/custmor/services/deleteCar/<%= carInfo._id %>"
+                      >&#10060;</a
+                    >
+                  </button>
+                </td>
+              </tr>
+            </table>
+            `; <% }) %> <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

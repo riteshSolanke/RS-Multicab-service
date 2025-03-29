@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customers</title>
+    <link rel="stylesheet" href="/admin/adminCss/adminCustmorPage.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <%- include('partials/asidebar.ejs') %>
+
+      <div class="page_container">
+        <%- include(`partials/header.ejs`) %>
+        <div class="container">
+          <% allCustmorInfo.forEach(custmor => { %>
+          <div class="card">
+            <div class="card-header">
+              <img
+                src="<%= custmor.profilePic ? custmor.profilePic : '/admin/adminImages/adminCustmorPage/profile_Pic.png' %>"
+                alt="Profile Picture"
+                class="profile-pic"
+              />
+              <div>
+                <h3 class="card-title"><%= custmor.custmorName %></h3>
+                <p class="card-subtitle"><%= custmor.serviceName %></p>
+              </div>
+            </div>
+            <div class="card-content">
+              <p><strong>ID:</strong> <%= custmor.custmorId %></p>
+              <p><strong>Email:</strong> <%= custmor.email %></p>
+              <a href="/admin/services/custmorLogin/<%= custmor.custmorId %>">
+                <button>View Details</button>
+              </a>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

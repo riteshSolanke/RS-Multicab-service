@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Website</title>
+    <link
+      rel="stylesheet"
+      href="/custmor/custmorCss/custmorManageCarPage.css"
+    />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+        <div class="container">
+          <h1>Manage Car Details</h1>
+          <div class="manageingButtons">
+            <button id="addCarBookingBtn">
+              <a href="/custmor/addCar">Add New Booking Car</a>
+            </button>
+            <button id="deleteCarBookingBtn">
+              <a href="/custmor/deleteCar">Delete Existing Car</a>
+            </button>
+          </div>
+          <div class="carInfoTable">
+            <% if (locals.carInfo&&  carInfo.length > 0) { %> <%
+            custmorStaticData.carInfo.forEach(function(carInfo) { %>
+            <table id="table">
+              <tr>
+                <td colspan="2" rowspan="2">
+                  <img
+                    src="<%= carInfo.carImage %>"
+                    alt="Car Image"
+                    id="carImg"
+                  />
+                  <h2><%= carInfo.carName %></h2>
+                </td>
+                <td>
+                  <p><%= carInfo.seatCapacity %> Seats</p>
+                </td>
+                <td>
+                  <p><%= carInfo.bagCapacity %> Bags</p>
+                </td>
+                <td>
+                  <p><%= carInfo.isAC %></p>
+                </td>
+                <td>
+                  <p><%= carInfo.petAllowed %></p>
+                </td>
+                <td>Rs <%= carInfo.carRent %></td>
+              </tr>
+              <tr>
+                <td colspan="4">
+                  <h3><span>Inclusions:</span> <%= carInfo.inclustions %></h3>
+                  <h3><span>Exclusions:</span> <%= carInfo.exclustions %></h3>
+                </td>
+                <td>
+                  <button><a href="/<%= custmorInfo.
+                    serviceUrlLink %>/bookAndPay/<%= carInfo._id %>">Book Now</a></button>
+                </td>
+              </tr>
+            </table>
+            <% }) %> <% } else { %>
+            <p>No car information available.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/custmor/custmorJs/custmorManageCarPage.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

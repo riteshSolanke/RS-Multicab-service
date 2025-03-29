@@ -1,0 +1,396 @@
+/* ----------------------------------------------------------------------------- */
+
+/* FOOTER STYLEING  */
+
+.footer_main {
+  min-height: 400px;
+}
+
+.footer_container {
+  width: 100%;
+}
+.footer {
+  width: 100%;
+}
+.footer_main {
+  /* border: 1px solid green; */
+  background-color: #631d02;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer_main_contact {
+  padding: 30px;
+  margin-top: 60px;
+}
+
+.contact_way_img {
+  background: url(/user/userImages/partials/footer/footerContactWayImg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  object-fit: cover;
+  height: 20rem;
+  width: 26rem;
+  position: relative;
+  bottom: 80px;
+  left: 20px;
+}
+
+.contact_way {
+  display: flex;
+  justify-content: space-evenly;
+  /* max-width: 800px; */
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid white;
+  /* border: 2px solid black; */
+}
+.contact_way_section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  width: 230px;
+}
+.abc1 {
+  border-right: 1px solid white;
+}
+.abc2 {
+  border-right: 1px solid white;
+}
+.abc3 h3 {
+  color: white;
+}
+.abc3 p {
+  color: white;
+}
+.contact_way_section img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 30px;
+}
+.contact_way_section a {
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.contact_way_button {
+  display: flex;
+  justify-content: space-between;
+}
+.contact_way_button h2 {
+  color: white;
+  font-weight: 900;
+  margin: 20px 5px;
+  font-family: sans-serif;
+}
+.contact_way_button button {
+  margin: 10px;
+  background-color: #e24d04;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  border: 2px solid transparent;
+  width: 11rem;
+  height: 4rem;
+  transition: all 0.2s;
+}
+.contact_way_button button:hover {
+  background-color: #eb804b;
+}
+.footer_container {
+  position: relative;
+  top: 120px;
+}
+
+/* Footer services section */
+
+.main_footer_services {
+  background-color: #383838;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+}
+.services_section {
+  width: 100%;
+  display: flex;
+}
+
+.services {
+  width: 85%;
+}
+.services > h3 {
+  text-align: center;
+}
+.services_section h3 i {
+  color: #631d02;
+  margin-right: 10px;
+}
+.services_section h3 {
+  color: rgb(248, 241, 241);
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+/* .services_section ul {
+  } */
+
+.services_section .services .destinationNames {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.services_section .destinationNames li {
+  width: 30%;
+  list-style: none;
+  margin: 0 10px;
+  margin-bottom: 10px;
+  /* border-bottom: 1px solid white; */
+}
+.services_section .destinationNames a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  /* margin: 10px 0px; */
+  transition: all 0.5s;
+}
+.services_section .destinationNames a:hover {
+  color: #e24d04;
+}
+.contact_info {
+  color: white;
+  width: 30%;
+  font-family: "Open Sans", sans-serif;
+}
+.contact_info p {
+  line-height: 25px;
+  margin: 10px 0px;
+}
+.contact_info h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+.contact_info h4 {
+  color: white;
+}
+.contact_info h4 i {
+  color: #e24d04;
+  margin-right: 10px;
+}
+
+.contact_info h3 i {
+  color: #e24d04;
+  /* margin-right: 10px; */
+}
+.contact_info > li {
+  list-style: none;
+  margin-bottom: 6px;
+  /* margin: 10px 0px; */
+}
+.contact_info > li a {
+  color: white;
+  text-decoration: none;
+}
+.contact_info > li a:hover {
+  color: #e24d04;
+}
+.contact_info li i {
+  margin-right: 10px;
+  color: #e24d04;
+}
+
+/* Lower footer bar styling..... */
+
+.lower_footer_bar {
+  background-color: #404040;
+}
+.inner_lower_footer_bar_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.left_lower_footer_bar {
+  width: 40%;
+}
+
+.left_lower_footer_bar ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 10px;
+}
+
+.left_lower_footer_bar ul li {
+  list-style: none;
+  margin: 0px 10px;
+  padding: 10px 0;
+  /* border-right: 2px solid white; */
+}
+.left_lower_footer_bar ul li a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.left_lower_footer_bar ul li a:hover {
+  color: #e24d04;
+}
+
+.right_lower_footer_bar {
+  color: white;
+  width: 40%;
+  flex-wrap: wrap;
+  line-height: 30px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.right_lower_footer_bar a {
+  color: white;
+  transition: all 0.5s;
+}
+.right_lower_footer_bar a:hover {
+  color: #e24d04;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+/* Code For Responsive navbar below the 992px */
+
+@media only screen and (max-width: 1080px) {
+  /*Footer_container style for responsive...  */
+  body {
+    font-size: 14px;
+  }
+
+  .footer_main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer_main_contact {
+    width: 97%;
+    margin: 10px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 30px;
+  }
+  .contact_way {
+    width: 97%;
+  }
+  .contact_way_img {
+    width: 97%;
+    min-height: 307px;
+    background-size: cover;
+    left: 0;
+  }
+
+  /* Footer services section..... */
+  .main_footer_services {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  */ .services {
+    width: 70%;
+  }
+
+  .services_section .destinationNames li {
+    width: 40%;
+  }
+  /* Lower footer bar styling.... */
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* Media qurey for footer below the screen size 708px */
+
+@media only screen and (max-width: 708px) {
+  /* --------------------------------- */
+  /* FOOTER STYLEING  */
+  .contact_way {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .contact_way_section {
+    width: 100%;
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  .abc3 {
+    border: none;
+  }
+  .contact_way_button {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Footer services section */
+  .main_footer_services {
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  .services_section {
+    width: 100%;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .services {
+    width: 100%;
+  }
+  .services_section .services .destinationNames {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .services_section .destinationNames li {
+    width: 90%;
+    text-align: center;
+  }
+
+  .contact_info {
+    width: 100%;
+    text-align: center;
+  }
+  .contact_info h3 {
+    margin-bottom: 5px;
+  }
+  .contact_info > h4 {
+    margin: 0;
+    padding: 0;
+  }
+  /* Lower footer bar styling */
+  .inner_lower_footer_bar_section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left_lower_footer_bar {
+    width: 90%;
+    margin: 20px;
+  }
+  .right_lower_footer_bar {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+/* ---------------------Media Query----------------------------- */
+/* @media only screen and (max-width: 580px) {
+} */

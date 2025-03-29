@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/user/userCss/contactUs.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <!-- navbar -->
+      <nav><%- include('partials/navbar') %></nav>
+      <section><%- include('partials/upSection') %></section>
+
+      <!-- page content -->
+      <section class="contact-section">
+        <div class="container">
+            <div class="contact-form">
+                <h5 class="subheading">GET IN TOUCH</h5>
+                <h2 class="heading">CONTACT US TO GET MORE INFO</h2>
+                <p>We are always ready to help you to plan your trip, Contact us for more information.</p>
+
+                <form>
+                    <input type="text" placeholder="Your Name*" required>
+                    <input type="tel" placeholder="Your Phone Number*" required>
+                    <input type="email" placeholder="Your Email*" required>
+                    <textarea placeholder="Your Message*" required></textarea>
+                    <button type="submit" class="submit-btn">SUBMIT MESSAGE</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Need help ?? Feel free to contact us !</h3>
+                <p>Special Offers, Best Tour guide and everything is available at ease of your fingertips.</p>
+                <p>We are available to connect with the following options, choose the best one that suits you.</p>
+
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Our Address</h4>
+                        <p><strong>Mauli Cabs</strong><br>Pune Alandi Road, Wadmukhwadi Charholi Bk, Alandi Devachi, Khed, Pune 412105</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>booking@maulicabs.com</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Talk to us, Call now</h4>
+                        <p>7972733209 / 9763272775</p>
+                    </div>
+                </div>
+
+                <h4>Follow us on social media..</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- footer -->
+      <footer><%- include('partials/footer') %></footer>
+    </div>
+    <script src="/user/userJs/contactUs.js"></script>
+  </body>
+</html>

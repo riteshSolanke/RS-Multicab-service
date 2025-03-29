@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/custmor/custmorCss/custmorHomePage.css" />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+        <div class="container">
+          <div class="card">
+            <img src="/custmor/custmorImages/homeImg/booking.png" alt="error" />
+            <h3><a href="/custmor/checkBooking">Check Booking</a></h3>
+          </div>
+       
+          <div class="card">
+            <img src="/custmor/custmorImages/homeImg/enquiry.png" alt="error" />
+            <h3><a href="/custmor/checkEnquiry">Check Enquiry</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/custmor/custmorImages/homeImg/sms_check.png"
+              alt="error"
+            />
+            <h3><a href="#">Sms Check</a></h3>
+          </div>
+          <div class="card">
+            <img src="/custmor/custmorImages/homeImg/driver.png" alt="error" />
+            <h3><a href="#">Drivers</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/custmor/custmorImages/homeImg/add_drivers.png"
+              alt="error"
+            />
+            <h3><a href="#">Add Driver</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/custmor/custmorImages/homeImg/destination.png"
+              alt="error"
+            />
+            <h3>
+              <a href="/custmor/manageWebsite">Manage Website</a>
+            </h3>
+          </div>
+          <div class="card">
+            <img
+              src="/custmor/custmorImages/homeImg/destination.png"
+              alt="error"
+            />
+            <h3>
+              <a href="/custmor/manageDestination">Add Destination</a>
+            </h3>
+          </div>
+
+          <div class="card">
+            <img src="/custmor/custmorImages/homeImg/package.png" alt="error" />
+            <h3><a href="/custmor/managePackage">Manage Packeges</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/custmor/custmorImages/homeImg/add_holiday_window.png"
+              alt="error"
+            />
+            <h3><a href="#">Add Holiday Window</a></h3>
+          </div>
+          <div class="card">
+            <img
+              src="/custmor/custmorImages/homeImg/add_cars.png"
+              alt="error"
+            />
+            <h3><a href="/custmor/manageCar">Manage Cars</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

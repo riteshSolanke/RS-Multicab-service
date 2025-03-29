@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/custmor/custmorCss/custmorAddCarPage.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+        <div class="container">
+          <h1>Hello, from Add Car page</h1>
+          <form
+            id="carForm"
+            action="/custmor/upload/carBookingImg/uploadCarBookingData"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <label for="carImg">Upload Car Image</label>
+            <input type="file" name="carImg" id="carImg" required />
+
+            <label for="carName">Enter Name of Vehicle</label>
+            <input type="text" name="carName" id="carName" required />
+
+            <label for="seat_capacity">Enter Seat Capacity</label>
+            <input
+              type="text"
+              name="seatCapacity"
+              id="seat_capacity"
+              required
+            />
+
+            <label for="bag_capacity_text">Bag Capacity</label>
+            <input
+              type="text"
+              name="bagCapacity"
+              id="bag_capacity_text"
+              required
+            />
+
+            <label for="ac_or_non_ac">AC / Non-AC</label>
+            <input type="text" name="isAC" id="ac_or_non_ac" required />
+
+            <label for="pet_text">Enter Pet Allocation</label>
+            <input type="text" name="petAllowed" id="pet_text" required />
+
+            <label for="inclustions">Enter Inclusions</label>
+            <input type="text" name="inclustions" id="inclustions" required />
+
+            <label for="exclustions">Enter Exclusions</label>
+            <input type="text" name="exclustions" id="exclustions" required />
+
+           
+
+            <label for="carRent">Enter Car Rent</label>
+            <input type="text" name="carRent" id="carRent" required />
+
+            <button type="submit" id="submitBtn">Add Booking Car</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

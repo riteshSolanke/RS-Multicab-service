@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* body {
+      font-family: sans-serif;
+      font-size: 15px;
+      color: #383838;
+    } */
+  
+  .page_content {
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px 10px;
+    border: 1px solid rgb(214, 208, 208);
+    display: flex;
+  }
+  
+  .order_confirmation {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgb(214, 208, 208);
+  }
+  .upsection {
+    margin: 5px;
+    font-size: 15px;
+    color: #383838;
+    border: 3px solid transparent;
+    background-color: rgb(249, 251, 253);
+  }
+  .upsection h2 {
+    margin: 5px;
+    padding: 5px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #101f46;
+  }
+  .upsection p {
+    margin: 5px;
+    padding: 5px;
+  }
+  
+  form div {
+    width: 100%;
+    border: 1px solid transparent;
+    margin: 10px;
+    padding: 5px;
+  }
+  
+  form div label {
+    display: block;
+    padding: 5px;
+    font-weight: 500;
+  }
+  form div input {
+    width: 80%;
+    height: 60px;
+    padding: 5px;
+    border: 1px solid rgb(214, 207, 207);
+    font-size: 22px;
+    font-weight: 600;
+    transition: border-color 0.3s;
+  }
+  form div input:focus {
+    border: 1px solid orangered;
+    outline: none;
+  }
+  #date {
+    font-weight: normal;
+    font-size: 15px;
+  }
+  
+  form div textarea {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+  }
+  form div textarea:focus {
+    border: 1px solid orangered;
+    outline: none;
+  }
+  .payment_section {
+    width: 45%;
+    margin: 20px;
+  }
+  .payment_section h4 {
+    /* display: inline-block; */
+    width: 300px;
+    border: 1px solid black;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #631d02;
+    color: white;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  table {
+    border-bottom: 5px solid #631d02;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+    padding: 20px;
+    width: 100%;
+  }
+  tr,
+  td {
+    border-bottom: 1px solid rgb(231, 222, 222);
+    padding: 20px;
+  }
+  
+  .payment_section > div {
+    border: 1px solid gray;
+    margin-top: 60px;
+  }
+  
+  .payment_section div h3 {
+    /* border: 1px solid black; */
+    padding: 14px 28px;
+    margin: 10px;
+  }
+  .payment_section div p {
+    /* border: 2px solid black; */
+    padding: 18px 28px;
+    margin: 10px;
+  }
+  #payment_btn {
+    /* width: 100%; */
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid transparent;
+    padding: 10px;
+    background-color: #e24d04;
+    color: white;
+    margin: 20px auto;
+    text-align: center;
+    margin-top: 25px;
+  }
+  #payment_btn:hover {
+    background-color: #eb7a4e;
+  }
+  

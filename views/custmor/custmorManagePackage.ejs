@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Package</title>
+    <link rel="stylesheet" href="/custmor/custmorCss/custmorManagePackage.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div class="main_page">
+    <aside><%- include('partials/custmorAsidebar') %></aside>
+    
+    <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+
+        <div class="container">
+            <h1>Add New Package To Your Cab Services</h1>
+
+            <!-- Form Start -->
+            <form action="/custmor/services/addPackage" method="POST">
+                <div class="car-rental-container">
+                    <h2><input type="text" name="packageName" placeholder="Enter Package Name You Want To Create" required></h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type of Car</th>
+                                <th>CAPACITY</th>
+                                <th>PER DAY RENT</th>
+                                <th>CHARGES PER KM</th>
+                                <th>PER DAY DRIVER ALLOWANCE</th>                  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (locals.carInfo) { %>
+                            <% carInfo.forEach((car, index) => { %>
+                                <tr>
+                                    <td><input type="text" name="cars[<%= index %>][carName]" value="<%= car.carName %>" required></td>
+                                    <td><input type="text" name="cars[<%= index %>][seatCapacity]" placeholder="E.g. 4 +1" required></td>
+                                    <td><input type="text" name="cars[<%= index %>][packageRent]" placeholder="E.g. 7400" required></td>
+                                    <td><input type="text" name="cars[<%= index %>][perKmCharges]" placeholder="E.g. 12 per km" required></td>
+                                    <td><input type="text" name="cars[<%= index %>][driverAllowance]" placeholder="E.g 300" required></td>
+                                </tr>
+                            <% }) %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Submit Package</button>
+            </form>
+            <!-- Form End -->
+        </div>
+    </div>
+</div>
+
+<script src="/common/commonJs/alertMsg.js"></script>
+</body>
+</html>

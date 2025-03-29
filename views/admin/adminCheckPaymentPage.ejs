@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/admin/adminCss/adminCheckPaymentPage.css" />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <div class="main_page">
+        <aside><%- include('partials/asidebar.ejs') %></aside>
+      <div class="page_container">
+        <%- include(`partials/header.ejs`) %>
+       <div class="container">
+            <!-- views/user/paymentHistory.ejs -->
+<h2>Customer Payment History</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Payment ID</th>
+      <th>Amount</th>
+      <th>Currency</th>
+      <th>Status</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (PaymentData.length > 0) { %>
+      <% PaymentData.forEach(payment => { %>
+        <tr>
+          <td><%= payment.id %></td>
+          <td>₹<%= payment.amount / 100 %></td>
+          <td><%= payment.currency.toUpperCase() %></td>
+          <td><%= payment.status %></td>
+          <td><%= new Date(payment.created * 1000).toLocaleString() %></td>
+        </tr>
+      <% }) %>
+    <% } else { %>
+      <tr>
+        <td colspan="5">No payment history found.</td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+       </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/custmor/custmorCss/custmorBookingPage.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+       <div class="container">
+
+        <% if (locals.bookingInfo) { %>
+          <% bookingInfo.forEach(booking => { %>
+
+
+              <!-- views/user/paymentHistory.ejs -->
+              <div class="booking-card">
+                <h2>Booking for <%= booking.destination %></h2>
+                <p><strong>Name:</strong> <%= booking.name %></p>
+                <p><strong>Phone:</strong> <%= booking.phone %></p>
+                <p><strong>Email:</strong> <%= booking.email %></p>
+                <p><strong>Pickup Address:</strong> <%= booking.pickUpAddress %></p>
+                <p><strong>Car:</strong> <%= booking.carName %></p>
+                <p><strong>Car Rent:</strong> ₹<%= booking.carRent %></p>
+                <p><strong>Driver Allowance:</strong> ₹<%= booking.driverAllowance %></p>
+                <p><strong>Total Amount:</strong> ₹<%= booking.totalAmount %></p>
+                <p><strong>Payment Status:</strong> <%= booking.paymentStatus %></p>
+              
+                <!-- Show switch only if isBookingRead is false -->
+                <% if (!booking.isBookingRead) { %>
+                  <form action="/markAsRead/<%= booking._id %>" method="POST">
+                  
+                      <label for="isBookingRead">Mark as Read</label>
+                      <input type="checkbox" name="isBookingRead"  id="isBookingRead"  onchange="this.form.submit()">
+                      <span class="slider round"></span>
+               
+                  </form>
+                <% } else { %>
+                  <p class="status-read">✅ Booking Read</p>
+                <% } %>
+              </div>
+           
+          <% }) %>
+         
+        <% } %>
+
+
+          
+            
+
+
+       </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

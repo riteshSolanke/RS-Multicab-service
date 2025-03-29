@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #101f46;
+  margin: 20px;
+}
+.manageingButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.manageingButtons button {
+  padding: 10px;
+  border: 2px solid transparent;
+  background-color: orangered;
+  margin: 5px;
+  transition: all 0.3s ease-in-out;
+}
+.manageingButtons button:hover {
+  background-color: orange;
+}
+.manageingButtons button a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+.manageingButtons button:hover a {
+  color: white;
+  cursor: pointer;
+}
+.main_page_table {
+  width: 90%;
+  margin: 30px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+th,
+td {
+  border: 1px solid #dee2e6;
+  color: #101f46;
+  padding: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+#carImg {
+  max-width: 170px;
+  height: auto;
+}
+td > img {
+  margin: 10px;
+  max-width: 30px;
+  height: 30px;
+}
+
+tr > td > h3 {
+  margin: 10px;
+  color: gray;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+tr > td > h3 > span {
+  color: gray;
+  font-weight: bold;
+}
+
+tr > td > button {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: orange;
+  color: black;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+tr > td > button:hover {
+  background-color: rgb(237, 204, 144);
+  cursor: pointer;
+}

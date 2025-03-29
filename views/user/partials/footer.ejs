@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer_Code</title>
+    <link rel="stylesheet" href="/user/userCss/partials/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="footer_container">
+      <div class="footer_main">
+        <div class="contact_way_img"></div>
+        <div class="footer_main_contact">
+          <div class="contact_way">
+            <div class="contact_way_section abc1">
+              <img
+                src="/user/userImages/partials/footer/footerIcon1.png"
+                alt=""
+              />
+              <a href="#"
+                ><i class="fa-regular fa-envelope"></i><%=
+                locals.custmorInfo?.email ||"N/A" %>
+              </a>
+            </div>
+            <div class="contact_way_section abc2">
+              <img
+                src="/user/userImages/partials/footer/footerIcon2.png"
+                alt=""
+              />
+              <a href="#"
+                ><i class="fa-solid fa-phone"></i><%= locals.custmorInfo?.phone1
+                || "N/A" %></a
+              >
+            </div>
+            <div class="contact_way_section abc3">
+              <img
+                src="/user/userImages/partials/footer/footerIcon3.png"
+                alt=""
+              />
+
+              <h3>Mauli Cabs</h3>
+              <p><%= locals.custmorInfo?.address || "N/A" %></p>
+            </div>
+          </div>
+          <div class="contact_way_button">
+            <h2>LET'S CONTACT US FOR MORE UPDATE !!</h2>
+            <button>Contact Us</button>
+          </div>
+        </div>
+      </div>
+      <!-- services -->
+      <div class="main_footer_services">
+        <div class="services_section">
+          <div class="services">
+            <h3><i class="fa-solid fa-caret-right"></i>services</h3>
+            <div class="destinationNames">
+              <% if (locals.destinationInfo && locals.destinationInfo.length > 0) { %>
+                <% destinationInfo.forEach(destination => { %>
+                    <li>
+                        <a href="/<%= locals.custmorInfo.serviceUrlLink %>/dynamic/<%= destination._id %>">
+                            <%= destination.destinationFooterLinkName %>
+                        </a>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li>No destinations available</li>
+            <% } %>
+            
+              
+
+              
+            </div>
+          </div>
+          <div class="contact_info">
+            <h3><i class="fa-solid fa-caret-right"></i>contact information</h3>
+
+            <h4>
+              <i class="fa-solid fa-location-dot"></i><%=
+              locals.custmorInfo?.serviceName || "N/A" %>
+            </h4>
+            <p><%= locals.custmorInfo?.address || "N/A" %></p>
+            <li>
+              <a href="tel:locals.custmorInfo?.phone1 || ''"
+                ><i class="fa-solid fa-phone"></i> <%=
+                locals.custmorInfo?.phone1 || "N/A" %></a
+              >
+            </li>
+            <li>
+              <a href="mailto:<%= locals.custmorInfo?.email || '' %>">
+                <i class="fa-regular fa-envelope"></i> <%=
+                locals.custmorInfo?.email || "N/A" %>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+      <div class="lower_footer_bar">
+        <div class="inner_lower_footer_bar_section">
+          <div class="left_lower_footer_bar">
+            <ul>
+              <li><a href="#">Privacy Policy |</a></li>
+              <li><a href="#">Terms & Conditions |</a></li>
+              <li><a href="#">FAQ |</a></li>
+              <li>
+                <a href="#"><i class="fa-brands fa-facebook"></i> |</a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-twitter"></i> |</a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-instagram"></i> |</a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-linkedin"></i> |</a>
+              </li>
+            </ul>
+          </div>
+          <div class="right_lower_footer_bar">
+            Copyright <i class="fa fa-copyright"></i>
+            2024 Mauli Cabs. All rights reserved. Developed by
+            <a href="#" target="_blank">Ritesh_Solanke</a>
+            | Hosted At
+            <a href="#">Render Hosting</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="user/userJs/partials/footer.js"></script> -->
+  </body>
+</html>

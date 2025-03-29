@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/user/userCss/onlineBooking.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <!-- navbar -->
+      <nav><%- include('partials/navbar') %></nav>
+      <section><%- include('partials/upSection') %></section>
+
+      <!-- page content -->
+
+      <div class="main_page_table">
+        <div class="carInfoTable">
+          <% if ( locals.carInfo &&
+          carInfo.length > 0) { %> <%
+          carInfo.forEach(function(carInfo) { %>
+          <table id="table">
+            <tr>
+              <td colspan="2" rowspan="2">
+                <img
+                  src="<%= carInfo.carImage %>"
+                  alt="Car Image"
+                  id="carImg"
+                />
+                <h2><%= carInfo.carName %></h2>
+              </td>
+              <td>
+                <p><%= carInfo.seatCapacity %> Seats</p>
+              </td>
+              <td>
+                <p><%= carInfo.bagCapacity %> Bags</p>
+              </td>
+              <td>
+                <p><%= carInfo.isAC %></p>
+              </td>
+              <td>
+                <p><%= carInfo.petAllowed %></p>
+              </td>
+              <td>Rs <%= carInfo.carRent %></td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <h3><span>Inclusions:</span> <%= carInfo.inclustions %></h3>
+                <h3><span>Exclusions:</span> <%= carInfo.exclustions %></h3>
+              </td>
+              <td>
+                <button><a href="/<%= custmorInfo.
+                  serviceUrlLink %>/bookAndPay/<%= carInfo._id %>">Book Now</a></button>
+              </td>
+            </tr>
+          </table>
+          <% }) %> <% } else { %>
+          <p>No car information available.</p>
+          <% } %>
+        </div>
+      </div>
+      <!-- footer -->
+      <footer><%- include('partials/footer') %></footer>
+    </div>
+    <script src="/user/userJs/onlineBooking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="/user/userCss/renderDynamicDestinationPage.css"
+    />
+    <style>
+      :root {
+        --destinationImg: url("<%= locals.targetedDestinationInfo && locals.targetedDestinationInfo.destinationImg ? locals.targetedDestinationInfo.destinationImg : '' %>");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_page">
+      <nav><%- include('partials/navbar') %></nav>
+      <section><%- include('partials/upSection') %></section>
+
+      
+      <div class="destination_Details">
+        <div class="destination_Img"></div>
+        <div class="destination_info">
+          <%- locals.targetedDestinationInfo.destinationHtmlContent %>
+        </div>
+      </div>
+      
+      <footer><%- include('partials/footer') %></footer>
+    </div>
+
+    <script src="/user/userJs/renderDynamicDestinationPage.js"></script>
+  </body>
+</html>

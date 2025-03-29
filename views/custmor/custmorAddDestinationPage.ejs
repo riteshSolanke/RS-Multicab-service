@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Destination</title>
+    <link
+      rel="stylesheet"
+      href="/custmor/custmorCss/custmorAddDestinationPage.css"
+    />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+    <div class="container">
+      <h1>Manage Destination Places</h1>
+      <button id="formInstruction">
+        View Instruction To Submit Destination Data
+      </button>
+      <div class="main_page2">
+        <label for="destination_name">Enter destination name</label>
+        <input
+          type="text"
+          id="destination_name"
+          name="destination_name"
+          required
+        />
+        <label for="footerDestinationLink">Enter Footer Destination Link</label>
+        <input
+          type="text"
+          id="footerDestinationLink"
+          name="footerDestinationLink"
+          required
+        />
+  
+        <label for="upload_destinationImg">Upload Destination Image</label>
+        <input
+          type="file"
+          id="upload_destinationImg"
+          name="upload_destination"
+          required
+        />
+        <h2>Enter HTML to create Destination page</h2>
+        <div class="html_content">
+          <textarea name="htmlText" id="htmlText">
+  
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Destination</title>
+            </head>
+            <body>
+              <div class="main_page">
+              
+                <div class="destination_info">
+                  <!-- Write here HTML to create destination Page Dynamically... before writeing Html read instructions. -->
+                </div>
+              </div>
+              
+            </body>
+            </html>
+    
+          </textarea>
+          <div class="checkButtons">
+            <div class="checkBtn">
+              <label for="addToHolidayWindow"
+                >Do you want to create the holiday window of this destination
+              </label>
+              <input
+                type="checkbox"
+                name="addToHolidayWindow"
+                id="addToHolidayWindow"
+                value="on"
+              />
+            </div>
+  
+            <div class="checkBtn">
+              <label for="addDestinationLinkToFooter"
+                >Do you want to add link of the above destination to footer
+              </label>
+              <input
+                type="checkbox"
+                name="addDestinationLinkToFooter"
+                id="addDestinationLinkToFooter"
+                value="on"
+              />
+            </div>
+  
+            <div class="checkBtn">
+              <label for="addToServiceHeader"
+                >Do you want to add the this destination Link to service Header 
+              </label>
+              <input
+                type="checkbox"
+                name="addToServiceHeader"
+                id="addToServiceHeader"
+                value="on"
+               
+              />
+            </div>
+          </div>
+          <div class="formButtons">
+            <div class="addMoreDestination">Add More</div>
+            <div class="button" id="submitButton">Upload Data</div>
+          </div>
+        </div>
+      </div>
+      <div class="button_section">
+        <div class="btn_ele">
+          <label for="checkDestinationPage">View Destination Page Created</label>
+          <button id="checkDestinationPage">
+            <a href="/custmor/destination/recentallyCreatedPage"
+              >Destination Page View</a
+            >
+          </button>
+        </div>
+        <div class="btn_ele">
+          <label for="checkHolidayPageDestinationWindow"
+            >View Holiday Page Window View</label
+          >
+          <button id="checkHolidayPageDestinationWindow">
+            <a href="/custmor/destination/manageHolidayDestinationWindow"
+              >View Destination Window</a
+            >
+          </button>
+        </div>
+        <div class="btn_ele">
+          <label for="footerChecker">View Footer Destination Link </label>
+          <button id="footerChecker"><a href="/footer">Footer view</a></button>
+        </div>
+      </div>
+    </div> 
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+    <script src="/custmor/custmorJs/custmorAddDestinationPage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Canceled</title>
+    <link rel="stylesheet" href="/user/userCss/style.css"> <!-- Add this file for styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .message {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❌ Payment Canceled ❌</h1>
+        <p class="message">Your payment was not completed. You can retry the payment to confirm your booking.</p>
+        
+        <a href="/bookAndPay/<%= booking.carId %>" class="btn">Retry Payment</a>
+        <a href="/<%= custmorInfo.serviceUrlLink %>/" class="btn" style="background-color: #2ecc71;">Go to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+.main_page {
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+}
+
+.page_container {
+  width: 100%;
+}
+
+/* container styling */
+.container {
+  width: 100%;
+  height: 90vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
+  color: #101f46;
+  margin: 20px;
+}
+.management_cards {
+  /* border: 2px solid red; */
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  background-color: #6e6d70;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 30%;
+  margin-bottom: 20px;
+
+  text-align: center;
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.card img {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  object-fit: cover;
+  transition: all ease-in-out 0.4s;
+}
+
+.card:hover img {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+.card button {
+  text-align: center;
+  background-color: #d72b0d;
+  color: white;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card:hover button {
+  background-color: #cf5b08;
+  transform: scale(1.1);
+}
+.card button a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card button:active {
+  background-color: #004080;
+  transform: translateY(0);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures button and image are centered */
+  justify-content: space-between; /* Even spacing */
+  padding: 20px;
+  height: 250px; /* Ensure uniform height */
+}
+
+.card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain; /* Ensures image scales without distortion */
+}
+
+.card button {
+  width: 90%; /* Ensures button aligns with image */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .management_cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}

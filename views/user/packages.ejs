@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/user/userCss/packages.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <!-- navbar -->
+      <nav><%- include('partials/navbar') %></nav>
+      <section><%- include('partials/upSection') %></section>
+
+      <!-- page content -->
+      <% if (locals.packagesInfo) { %>
+        <% packagesInfo.forEach(package => { %>
+          <div class="car-rental-container">
+            <h2>🚗 <%= package.packageName %></h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Type of Car</th>
+                  <th>CAPACITY</th>
+                  <th>PER DAY PACKAGES RENT</th>
+                  <th>CHARGES PER KM</th>
+                  <th>PER DAY DRIVER ALLOWANCE</th>
+                  <th>Book Now</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (package.carInfo && package.carInfo.length > 0) { %> 
+                  <% package.carInfo.forEach(car => { %>
+                    <tr>
+                      <td><%= car.carName || 'N/A' %></td>
+                      <td><%= car.seatCapacity || 'N/A' %></td>
+                      <td><%= car.packageRent || 'N/A' %></td>
+                      <td><%= car.perKmCharges || 'N/A' %></td>
+                      <td><%= car.driverAllowance || 'N/A' %></td>
+                      <td>
+                        <button class="book-btn">
+                          <a href="/<%= custmorInfo.serviceUrlLink %>/enquiry">Book Now</a>
+                        </button>
+                      </td>
+                    </tr>
+                  <% }) %>
+                <% } else { %>
+                  <tr>
+                    <td colspan="6">No cars available in this package.</td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No packages found.</p>
+      <% } %>
+      
+
+
+
+      <!-- footer -->
+      <footer><%- include('partials/footer') %></footer>
+    </div>
+    <script src="/user/userJs/packages.js"></script>
+  </body>
+</html>

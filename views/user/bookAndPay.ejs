@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking & Payment</title>
+    <link rel="stylesheet" href="/user/userCss/bookAndPay.css" />
+  </head>
+  <body>
+    <div class="main_page">
+      <%- include('partials/navbar') %>
+      <section><%- include('partials/upSection') %></section>
+
+      <!-- Page Content -->
+      <div class="page_content">
+        <div class="order_confirmation">
+          <div class="upsection">
+            <h2>Order Confirmation</h2>
+            <p>
+              This is only a booking amount; actual billing will be calculated
+              at the end of the trip.
+            </p>
+          </div>
+
+          <form id="bookingForm">
+            <div>
+              <label for="destination">Destination*</label>
+              <input type="text" id="destination" name="destination" required />
+            </div>
+            <div>
+              <label for="name">Name*</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="phone">Phone*</label>
+              <input type="text" id="phone" name="phone" required />
+            </div>
+            <div>
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="pickUpAddress">Pick Up Address*</label>
+              <input
+                type="text"
+                id="pickUpAddress"
+                name="pickUpAddress"
+                required
+              />
+            </div>
+            <div>
+              <label for="date">Pickup Date</label>
+              <input type="date" name="date" id="date" required />
+            </div>
+            <div>
+              <label for="additionalInfo">Additional Information</label>
+              <textarea name="additionalInfo" id="additionalInfo"></textarea>
+            </div>
+
+            <input
+              type="hidden"
+              id="carId"
+              name="carId"
+              value="<%= carInfo._id %>"
+            />
+            <input
+              type="hidden"
+              id="carName"
+              name="carName"
+              value="<%= carInfo.carName %>"
+            />
+            <input
+              type="hidden"
+              id="carRent"
+              name="carRent"
+              value="<%= carInfo.carRent %>"
+            />
+            <input
+              type="hidden"
+              id="totalAmount"
+              name="totalAmount"
+              value="<%= Number(carInfo.carRent) + 500 %>"
+            />
+
+            <button type="submit" id="payment_btn">Proceed for Payment</button>
+          </form>
+        </div>
+
+        <div class="payment_section">
+          <h4>Your Order</h4>
+          <table>
+            <tbody>
+              <tr>
+                <td><%- carInfo.carName %></td>
+                <td align="right" id="car_rent_price">
+                  <%- carInfo.carRent %>
+                </td>
+              </tr>
+              <tr>
+                <td>Driver</td>
+                <td align="right" id="driver_allowance">500</td>
+              </tr>
+              <tr>
+                <td><b>Total Cost</b></td>
+                <td align="right" id="totalCost">
+                  <%= Number(carInfo.carRent) + 500 %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer><%- include('partials/footer') %></footer>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const bookingData = Object.fromEntries(formData.entries());
+          console.log("Booking Data:", bookingData);
+
+          try {
+            const response = await fetch(
+              `/<%=custmorInfo.serviceUrlLink%>/create-checkout-session`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(bookingData),
+              }
+            );
+
+            const { url } = await response.json(); // Get the URL from backend response
+            console.log("Stripe Redirect URL:", url);
+
+            if (url) {
+              window.location.href = url; // Redirect user to Stripe checkout page
+            } else {
+              alert("Error processing payment.");
+            }
+
+            if (sessionId) {
+              const stripe = Stripe(
+                "pk_test_51PtnafP1V1gosc3ntsoJliJo7DvduQuylry9uHGjUbujPDthr9qJ4lWdwepu9JvUyYDyDvAJybRYUu07aKIwiZUM00dyncfY7J"
+              );
+              await stripe.redirectToCheckout({ sessionId });
+            } else {
+              alert("Error processing payment.");
+            }
+          } catch (error) {
+            console.error("Payment error:", error);
+          }
+        });
+    </script>
+  </body>
+</html>

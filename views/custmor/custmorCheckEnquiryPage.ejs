@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/custmor/custmorCss/custmorCheckEnquiryPage.css" />
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <body>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+     <div class="container">
+        <% if (locals.enquirySms) { %>
+            <h1><%= enquirySms %></h1>         
+        <% } %>
+
+        <% if (locals.enquiryInfo) { %>
+            <% enquiryInfo.forEach(enquiry => { %>
+                <div class="enquiry-container">
+
+                    <!-- Sample Enquiry Card -->
+                    <div class="enquiry-card">
+                        <h3>Enquiry by: <strong><%= enquiry.name %></strong></h3>
+                        <p><strong>Phone:</strong><%= enquiry.phone %></p>
+                        <p><strong>Email:</strong> <%= enquiry.email %></p>
+                        <p><strong>Pick-up Point:</strong> <%= enquiry.
+                            pick_up_point %></p>
+                        <p><strong>Drop Point:</strong><%= enquiry.drop_point %></p>
+                        <p><strong>Car Type:</strong> <%= enquiry.type_of_car %></p>
+                        <p class="timestamp"><strong>Created At:</strong> <%= enquiry.createdAt %></p>
+                    </div>
+            
+                </div>
+             
+            <% }) %>
+         
+        <% } %>
+
+
+
+
+     </div>
+      </div>
+    </div>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

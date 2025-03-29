@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/user/userCss/partials/navbar.css" />
+  </head>
+
+  <body>
+    <nav id="navbar_container">
+      <!-- navbar contact information -->
+      <div class="contactInfo">
+        <div class="mobail">
+          <div>
+            <i class="fa-solid fa-phone"></i><%= locals.custmorInfo?.phone1 ||
+            "N/A" %>
+          </div>
+          <div>
+            <i class="fa-solid fa-phone"></i><%= locals.custmorInfo?.phone2 ||
+            "N/A" %>
+          </div>
+        </div>
+        <div class="email">
+          <div>
+            <i class="fa-solid fa-envelope"></i><%= locals.custmorInfo?.email ||
+            "" %>
+          </div>
+          <div class="loginUser">
+            <% if (locals.userInfo && locals.userInfo.email) { %>
+
+            <i class="fa-solid fa-user"></i><%= locals.userInfo.email %>
+            <form action="/unauth/logout" method="post">
+              <button type="submit">Logout</button>
+            </form>
+
+            <% } else { %>
+            <a href="/unauth/signin"><i class="fa-solid fa-user"></i> login</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <!-- navbar logo and navbar elements -->
+      <div class="navbarImg_ele">
+        <div class="logo">
+          <% if (locals.custmorStaticData) { %>
+          <img src="<%= custmorStaticData.profileLogo %>" alt="RS Cabs Logo" />
+          <% } else{ %>
+          <img src="" alt="Logo" />
+          <% } %>
+        </div>
+        <ul class="navEle">
+          <li>
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/"
+              >Home</a
+            >
+          </li>
+          <li class="aboutUsEle">
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/about"
+              >About us</a
+            >
+
+            <span id="aboutUsDropDownBtn"
+              ><i class="fa-solid fa-caret-up"></i
+            ></span>
+
+            <ul class="about_us_services">
+              <li>
+                <a href="/<%= locals.custmorInfo.
+                serviceUrlLink %>/corporateServices">Corporate Services</a>
+              </li>
+              <li><a href="/<%= locals.custmorInfo.
+                serviceUrlLink %>/ourFleets">Our Fleets</a></li>
+              <li><a href="/<%= locals.custmorInfo.
+                serviceUrlLink %>/FAQ">FAQ</a></li>
+              <li><a href="/<%= locals.custmorInfo.
+                serviceUrlLink %>/testimonials">Testimonials</a></li>
+              <li><a href="/<%= locals.custmorInfo.
+                serviceUrlLink %>/career">Career</a></li>
+              <li>
+                <a href="/<%= locals.custmorInfo.
+                serviceUrlLink %>/covid-19">COVID-19 Resources</a>
+              </li>
+            </ul>
+          </li>
+          <li class="servicesEle">
+            <a href="#">Services </a
+            ><span id="servicesEleDropDownBtn"
+              ><i class="fa-solid fa-caret-up"></i
+            ></span>
+            <ul class="destinationLinks">
+              <% if (Array.isArray(locals.destinationInfo) && locals.destinationInfo.length > 0) { %>
+                <% locals.destinationInfo.forEach(destination => { %>
+                    <% if (destination.addToServiceHeader) { %>
+                        <li>
+                            <a href="/<%= locals.custmorInfo.serviceUrlLink %>/dynamic/<%= destination._id %>">
+                                <%= destination.destinationFooterLinkName %>
+                            </a>
+                        </li>
+                    <% } %>
+                <% }) %>
+            <% } %>
+            
+
+            </ul>
+          </li>
+          <li>
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/packages"
+              >Packages</a
+            >
+          </li>
+          <li>
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/onlineBooking"
+              >Online Booking</a
+            >
+          </li>
+          <li>
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/holiday"
+              >Holiday</a
+            >
+          </li>
+          <li>
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/enquiry"
+              >Enquiry</a
+            >
+          </li>
+          <li>
+            <a
+              href="/<%= locals.custmorInfo.
+            serviceUrlLink %>/contactUs"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="toggleBtn"><i class="fa-solid fa-bars"></i>Menu</div>
+    </nav>
+
+    <script src="/user/userJs/partials/navbar.js"></script>
+  </body>
+</html>

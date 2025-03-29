@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home_page</title>
+
+    <link rel="stylesheet" href="/user/userCss/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --slider-img1: url("<%= locals.custmorStaticData?.homeSliderImg?.img1 || '' %>");
+        --slider-img2: url("<%= locals.custmorStaticData?.homeSliderImg?.img2 || '' %>");
+        --slider-img3: url("<%= locals.custmorStaticData?.homeSliderImg?.img3 || '' %>");
+        --slider-img4: url("<%= locals.custmorStaticData?.homeSliderImg?.img4 || '' %>");
+        --slider-img5: url("<%= locals.custmorStaticData?.homeSliderImg?.img5 || '' %>");
+        --slider-img6: url("<%= locals.custmorStaticData?.homeSliderImg?.img6 || '' %>");
+        --homePopSectionImg1: url("<%= locals.custmorStaticData?.homePopSectionImg?.section1?.img || '' %>");
+        --homePopSectionImg2: url("<%= locals.custmorStaticData?.homePopSectionImg?.section2?.img || '' %>");
+        --homePopSectionImg3: url("<%= locals.custmorStaticData?.homePopSectionImg?.section3?.img || '' %>");
+        --homePopSectionImg4: url("<%= locals.custmorStaticData?.homePopSectionImg?.section4?.img || '' %>");
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="main_page">
+      <%- include('partials/navbar') %>
+      <div class="slider_button_area">
+        <div class="main_slider container">
+          <div class="slider_image_box">
+            <div class="slider_img slider1"></div>
+            <div class="slider_img slider2"></div>
+            <div class="slider_img slider3"></div>
+            <div class="slider_img slider4"></div>
+            <div class="slider_img slider5"></div>
+            <div class="slider_img slider6"></div>
+          </div>
+        </div>
+        <div class="slider_button">
+          <div class="prev"><i class="fa-solid fa-angle-left"></i></div>
+          <div class="next"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+      </div>
+
+      <div class="hello_popular_section container">
+        <div class="main_hello_section">
+          <h3>hello !</h3>
+          <div class="inner_hello">
+            <div class="hello_upSection">
+              <h1>WELCOME YOU TO MAULI CABS</h1>
+              <p>
+                WE are Mauli Cabs , a cab and vehicle rental company based in
+                Pune with a commitment to quality service. Founded in 2010 by
+                Mr.Bhalerao Kanifnath, the firm was formed by Mr.Kanifnath with
+                more than decade of experience in the Tours and Travel niche.
+                You can choose us for following reasons
+              </p>
+            </div>
+            <div class="hello_downSection">
+              <div class="hello_child_ele">
+                <img src="/user/userImages/homeImg/helloSecImg1.png" alt="" />
+                <div>
+                  <h2>AFFORDABLE PRICE</h2>
+                  <p>Best in the market competative Pricing</p>
+                </div>
+              </div>
+              <div class="hello_child_ele">
+                <img src="/user/userImages/homeImg/helloSecImg2.png" alt="" />
+                <div>
+                  <h2>AFFORDABLE PRICE</h2>
+                  <p>Best in the market competative Pricing</p>
+                </div>
+              </div>
+              <div class="hello_child_ele">
+                <img src="/user/userImages/homeImg/helloSecImg3.png" alt="" />
+                <div>
+                  <h2>AFFORDABLE PRICE</h2>
+                  <p>Best in the market competative Pricing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main_popular_section container">
+          <div class="popular_upSection">
+            <div class="pop_upSection_heading">
+              <h3>POPULAR DESTINATION</h3>
+              <h1>TOP NOTCH DESTINATION</h1>
+            </div>
+            <p>
+              Mauli Cabs offers a wide range of fleets ranging from premium to
+              luxury cars to corporate and general clients. Since we've been in
+              this travel business for almost 10 years, we've earned a
+              reputation as one of the most reliable cab rental providers among
+              corporate and individual customers. Our services are available in
+              all major cities in India.
+            </p>
+          </div>
+          <div class="pop_downSection">
+            <div class="item1 pop_item">
+              <button class="pop_btn">
+                <a href="/<%= custmorInfo.serviceUrlLink %>/holiday">
+                  <%=
+                  locals.custmorStaticData?.homePopSectionImg?.section1?.destinationName
+                  || "No Destination" %>
+                </a>
+              </button>
+            </div>
+            <div class="item2 pop_item">
+              <button class="pop_btn">
+                <a href="/<%= custmorInfo.serviceUrlLink %>/holiday">
+                  <%=
+                  locals.custmorStaticData?.homePopSectionImg?.section2?.destinationName
+                  || "No Destination" %>
+                </a>
+              </button>
+            </div>
+            <div class="item3 pop_item">
+              <button class="pop_btn">
+                <a href="/<%= custmorInfo.serviceUrlLink %>/holiday">
+                  <%=
+                  locals.custmorStaticData?.homePopSectionImg?.section3?.destinationName
+                  || "No Destination" %>
+                </a>
+              </button>
+            </div>
+            <div class="item4 pop_item">
+              <button class="pop_btn">
+                <a href="/<%= custmorInfo.serviceUrlLink %>/holiday"><%=
+                  locals.custmorStaticData?.homePopSectionImg?.section4?.destinationName
+                  || "No Destination" %>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pop_destination_btn">
+          <button><a href="/<%= custmorInfo.serviceUrlLink %>/holiday">MORE DESTINATION</a></button>
+        </div>
+      </div>
+
+      <div class="main_vision_section">
+        <div class="inner_vision container">
+          <div class="vision1"></div>
+
+          <div class="vision2">
+            <div class="vision2_left">
+              <h4>callback for more</h4>
+              <h1>vision</h1>
+              <p>
+                To become the most trusted and first choice in car rental
+                services across India and to continuously scale-up to become the
+                "BEST CAB RENTAL COMPANY IN PUNE".
+              </p>
+              <div class="vision2_icon">
+                <div class="icons">
+                  <img src="/user/userImages/homeImg/visionIcon1.png" alt="" />
+                  <div class="icons_text">
+                    <h2>4000+</h2>
+                    <p>Satisfied Clients</p>
+                  </div>
+                </div>
+                <div class="icons">
+                  <img src="/user/userImages/homeImg/visionIcon2.png" alt="" />
+                  <div class="icons_text">
+                    <h2>4000+</h2>
+                    <p>Satisfied Clients</p>
+                  </div>
+                </div>
+                <div class="icons">
+                  <img src="/user/userImages/homeImg/visionIcon3.png" alt="" />
+                  <div class="icons_text">
+                    <h2>4000+</h2>
+                    <p>Satisfied Clients</p>
+                  </div>
+                </div>
+                <div class="icons">
+                  <img src="/user/userImages/homeImg/visionIcon4.png" alt="" />
+                  <div class="icons_text">
+                    <h2>4000+</h2>
+                    <p>Satisfied Clients</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="vision3">
+              <img src="/user/userImages/homeImg/visionIcon5.png" alt="" />
+              <div>
+                <p>Our 24/7 Emergency Phone Services</p>
+                <h1>Call: <%= locals.custmorInfo?.phone || "N/A" %></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_choose_section">
+        <div class="choose_us_inner">
+          <div class="choose_up">
+            <h1>WHY CHOOSE US ?</h1>
+            <p>
+              We are summarizing a few of the reasons why you might want to
+              travel with us here, but you may find there are numerous more.
+            </p>
+          </div>
+          <div class="choose_down">
+            <div class="choose_icons">
+              <i class="fa-regular fa-clock"></i>
+              <h2><a href="#">24 Hrs Support</a></h2>
+              <p>We are always ready to Help</p>
+            </div>
+            <div class="choose_icons">
+              <i class="fa-regular fa-thumbs-up"></i>
+              <h2><a href="#">100 % Safe</a></h2>
+              <p>We care for your safety</p>
+            </div>
+            <div class="choose_icons">
+              <i class="fa-solid fa-location-dot"></i>
+              <h2><a href="#">GPS</a></h2>
+              <p>Track your journey on the go</p>
+            </div>
+            <div class="choose_icons">
+              <i class="fa-solid fa-house"></i>
+              <h2><a href="#">pickup</a></h2>
+              <p>Onboard according to your choice</p>
+            </div>
+            <div class="choose_icons">
+              <i class="fa-solid fa-percent"></i>
+              <h2><a href="#">Discount</a></h2>
+              <p>Best Rates always guareented</p>
+            </div>
+            <div class="choose_icons">
+              <i class="fa-solid fa-car"></i>
+              <h2><a href="#">cab test</a></h2>
+              <p>Well Tested Vehicles for you</p>
+            </div>
+          </div>
+          <div class="choose_us_slider">
+            <div class="inner_choose_us_slider">
+              <div class="slider_containt">
+                <div class="slider_item slider_item1">
+                  <p>
+                    I have used <%= locals.custmorInfo.serviceName %> Travels for the last five years. An
+                    excellent team of committed people and drivers. A focus on
+                    customer satisfaction and quality cars. When other drivers
+                    or cars were unavailable, Mr.Kanifnath picked me up himself.
+                    I wish them all the best!
+                  </p>
+                  <div>
+                    <h2>siddharth sharma</h2>
+                    <h4>Director @ IT Company</h4>
+                  </div>
+                </div>
+                <div class="slider_item">
+                  <p>
+                    Very Fast Booking At Very Low Price..!,No Hidden
+                    Charges,Best Experience Driver ,Drop In Proper Time
+                  </p>
+                  <div>
+                    <h2>Advait Bhosale</h2>
+                    <h4>MBA Student</h4>
+                  </div>
+                </div>
+                <div class="slider_item">
+                  <p>
+                    I used it for a trip from Pune to the International Airport
+                    and for a trip to Mumbai. An excellent deal with an
+                    all-inclusive price of INR 2200 /- and a good vehicle. Good
+                    driver, on time, and no rash driving. I highly recommend it
+                  </p>
+                  <div>
+                    <h2>Prashant Ghule</h2>
+                    <h4>Software Engineer @ Hinjewadi</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="choose_us_slider_btn">
+                <input type="radio" name="slide" class="choose_us_slide_btn" />
+                <input type="radio" name="slide" class="choose_us_slide_btn" />
+                <input type="radio" name="slide" class="choose_us_slide_btn" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+    </div>
+
+    <script src="/user/userJs/home.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
+  </body>
+</html>

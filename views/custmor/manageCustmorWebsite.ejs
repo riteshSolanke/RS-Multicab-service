@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Website</title>
+    <link
+      rel="stylesheet"
+      href="/custmor/custmorCss/manageCustmorWebsite.css"
+    />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <div class="main_page">
+      <aside><%- include('partials/custmorAsidebar') %></aside>
+
+      <div class="page_container">
+        <%- include('partials/custmorHeader') %>
+        <div class="container">
+          <!-- Upload Website Logo Section -->
+          <div class="upload_section">
+            <h2 class="toggle-header">
+              Upload Website Logo <span>&#9650;</span>
+            </h2>
+            <div class="upload-content">
+              <div class="imageDemo">
+                <img
+                  src="/custmor/custmorImages/manageCustmorWebsiteImg/home-logo-Ss.jpg"
+                  alt=""
+                />
+              </div>
+              <form
+                class="upload-form"
+                action="/custmor/upload/profilePic/uploadProfilePic"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <label for="website-logo">Upload Logo</label>
+                <input type="file" name="website-logo" id="website-logo" />
+
+                <button type="submit">Upload</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Upload Sidebar Images Section -->
+          <div class="upload_section">
+            <h2 class="toggle-header">
+              Upload Sidebar Images <span>&#9650;</span>
+            </h2>
+            <div class="upload-content">
+              <div class="imageDemo">
+                <img
+                  src="/custmor/custmorImages/manageCustmorWebsiteImg/sliderImg-Ss.jpg"
+                  alt=""
+                />
+              </div>
+              <form
+                class="upload-form"
+                action="/custmor/upload/sliderImgs/uploadSliderImgs"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <label for="slidebar-image1">Upload Sidebar Image 1</label>
+                <input
+                  type="file"
+                  name="slidebar-image1"
+                  id="slidebar-image1"
+                />
+                <label for="slidebar-image2">Upload Sidebar Image 2</label>
+                <input
+                  type="file"
+                  name="slidebar-image2"
+                  id="slidebar-image2"
+                />
+                <label for="slidebar-image3">Upload Sidebar Image 3</label>
+                <input
+                  type="file"
+                  name="slidebar-image3"
+                  id="slidebar-image3"
+                />
+                <label for="sidebar-image4">Upload Sidebar Image 4</label>
+                <input
+                  type="file"
+                  name="slidebar-image4"
+                  id="slidebar-image4"
+                />
+                <label for="slidebar-image5">Upload Sidebar Image 5</label>
+                <input
+                  type="file"
+                  name="slidebar-image5"
+                  id="slidebar-image5"
+                />
+                <label for="slidebar-image6">Upload Sidebar Image 6</label>
+                <input
+                  type="file"
+                  name="slidebar-image6"
+                  id="slidebar-image6"
+                />
+                <button type="submit">Upload</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Upload Destination Images Section -->
+          <div class="upload_section">
+            <h2 class="toggle-header">
+              Upload Home Popular Destination Images <span>&#9650;</span>
+            </h2>
+            <div class="upload-content">
+              <div class="imageDemo">
+                <img
+                  src="/custmor/custmorImages/manageCustmorWebsiteImg/popDestinationSec-Ss.jpg"
+                  alt=""
+                />
+              </div>
+              <form
+                class="upload-form"
+                id="uploadPopDestinationInfo"
+                data-endpoint="/custmor/upload/homePopDestinationImg/uploadHomePopDestinationData"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <label for="popular-destination-img1"
+                  >Upload Home Popular Destination Image 1</label
+                >
+                <input
+                  type="file"
+                  name="popular-destination-img1"
+                  id="popular-destination-img1"
+                />
+                <input
+                  type="text"
+                  id="popDestinationName1"
+                  name="popDestinationName1"
+                  placeholder="Enter Destination Name"
+                />
+                <hr />
+                <label for="popular-destination-img2"
+                  >Upload Home Popular Destination Image 2</label
+                >
+                <input
+                  type="file"
+                  name="popular-destination-img2"
+                  id="popular-destination-img2"
+                />
+                <input
+                  type="text"
+                  id="popDestinationName2"
+                  name="popDestinationName2"
+                  placeholder="Enter Destination Name"
+                />
+                <hr />
+                <label for="popular-destination-img3"
+                  >Upload Home Popular Destination Image 3</label
+                >
+                <input
+                  type="file"
+                  name="popular-destination-img3"
+                  id="popular-destination-img3"
+                />
+                <input
+                  type="text"
+                  id="popDestinationName3"
+                  name="popDestinationName3"
+                  placeholder="Enter Destination Name"
+                />
+                <hr />
+                <label for="popular-destination-img4"
+                  >Upload Home Popular Destination Image 4</label
+                >
+                <input
+                  type="file"
+                  name="popular-destination-img4"
+                  id="popular-destination-img4"
+                />
+                <input
+                  type="text"
+                  id="popDestinationName4"
+                  name="popDestinationName4"
+                  placeholder="Enter Destination Name"
+                />
+                <hr />
+
+                <button type="submit">Upload</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/common/commonJs/alertMsg.js"></script>
+    <script src="/custmor/custmorJs/manageCustmorWebsite.js"></script>
+  </body>
+</html>
