@@ -1,4 +1,5 @@
 async function attachUserInfo(req, res, next) {
+  console.log(req.user);
   try {
     if (req.isAuthenticated() && req.user && req.user.role == "admin") {
       // If logged in via Passport (normal login)
