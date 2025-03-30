@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const CustmorUpload = require("../../models/custmor/custmorUploadModel");
+const { cloudinary } = require("../../config/custmor/multerUploadConfig");
+const Driver = require("../../models/driver/driverModel")
 
 async function deleteExistingBookingCar(req, res) {
   try {
@@ -117,7 +119,93 @@ async function addNewPackage(req, res) {
 }
 
 
+async function deleteTargetedDestinationData(req, res) {
+  const destinationId = req.params.destinationId;
+  const custmorId = req.session.custmor?._id;
+
+  if (!custmorId) {
+    return res.status(400).json({ message: "Customer session not found" });
+  }
+
+  try {
+    // Find the customer document
+    const custmor = await CustmorUpload.findOne({ custmorId });
+
+    if (!custmor) {
+      return res.status(404).json({ message: "Customer not found" });
+    }
+
+    // Find the destination to delete
+    const destinationToDelete = custmor.destinationInfo.find(
+      (destination) => destination._id.toString() === destinationId
+    );
+
+    if (!destinationToDelete) {
+      return res.status(404).json({ message: "Destination not found" });
+    }
+
+    // Extract Cloudinary public_id from the image URL
+    const imageUrl = destinationToDelete.destinationImg;
+    const publicId = imageUrl.split("/").slice(-1)[0].split(".")[0]; // Extracts Cloudinary public_id
+
+    // Delete the image from Cloudinary
+    await cloudinary.uploader.destroy(`customers/${custmorId}/destinations/${publicId}`);
+
+    // Remove the destination from the destinationInfo array
+    custmor.destinationInfo = custmor.destinationInfo.filter(
+      (destination) => destination._id.toString() !== destinationId
+    );
+
+    // Save the updated customer document
+    await custmor.save();
+    return res.redirect(
+      "/custmor/manageDestination?status=success&message= Existing Destination Deleted "
+    );
+
+    return res.json({ message: "Destination deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting destination:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+async function addNewDriver(req, res){
+  
+  try {
+    const custmorId= req.session.custmor?._id;
+    if(!custmorId){
+      return res.status(500).json({message: "custmor session is missing error during driver information adding"});
+    }
+    const { name, phone, email, licenseNumber, vehicleType, vehicleNumber} = req.body;
+    console.log(req.body);
+
+    // Create new driver object
+    const newDriver = new Driver({
+      custmorId,
+      serviceName: req.session.custmorInfo.serviceName,
+      name,
+      phone,
+      email,
+      licenseNumber,
+      vehicleType,
+      vehicleNumber,    
+    });
+
+    await newDriver.save();
+    
+    return res.redirect("/custmor/driver?status=success&message=New driver is added successfully");
+  } catch (error) {
+    console.error("Error adding driver:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
 
 
 
-module.exports = { deleteExistingBookingCar, addNewPackage };
+
+
+
+
+
+
+module.exports = { deleteExistingBookingCar, addNewPackage, deleteTargetedDestinationData,addNewDriver };

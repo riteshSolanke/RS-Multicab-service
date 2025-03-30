@@ -63,11 +63,13 @@
             <div class="destinationNames">
               <% if (locals.destinationInfo && locals.destinationInfo.length > 0) { %>
                 <% destinationInfo.forEach(destination => { %>
+                  <% if (destination.addDestinationLinkToFooter) { %>
                     <li>
                         <a href="/<%= locals.custmorInfo.serviceUrlLink %>/dynamic/<%= destination._id %>">
                             <%= destination.destinationFooterLinkName %>
                         </a>
                     </li>
+                <% } %>
                 <% }) %>
             <% } else { %>
                 <li>No destinations available</li>

@@ -6,16 +6,47 @@
     <title>Document</title>
     <link rel="stylesheet" href="/admin/adminCss/adminDriverpage.css" />
   </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <body>
     <div class="main_page">
       <aside><%- include('partials/asidebar.ejs') %></aside>
 
       <div class="page_container">
         <%- include(`partials/header.ejs`) %>
-        <div class="container"></div>
+        <div class="container">
+
+          <% if (locals.allDriversInfo) { %>
+
+            <% allDriversInfo.forEach(driver => { %>
+              <div class="card">
+                <div class="card-header">
+                  <img
+                    src="<%= driver.profilePic ? driver.profilePic : '/admin/adminImages/adminCustmorPage/profile_Pic.png' %>"
+                    alt="Profile Picture"
+                    class="profile-pic"
+                  />
+                  <div>
+                    <h3 class="card-title"><%= driver.name %></h3>
+                    <p class="card-subtitle">driverId:<%= driver._id %></p>
+                    <p class="card-subtitle">License Number: <%=driver.licenseNumber  %></p>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <p><strong>custmorID:</strong> <%= driver.custmorId %></p>
+                  <p><strong>Email:</strong> <%= driver.email %></p>
+                  <a href="#">
+                    <button>View Details</button>
+                  </a>
+                </div>
+              </div>
+              <% }); %>
+           
+          <% } %>
+
+        </div>
       </div>
     </div>
 
-
+    <script src="/common/commonJs/alertMsg.js"></script>
   </body>
 </html>

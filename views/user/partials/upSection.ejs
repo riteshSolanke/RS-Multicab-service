@@ -5,63 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>up_section</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+   /* Responsive CSS for Up Section */
 
-      .main_page {
-        width: 100%;
-      }
-      .header_img {
-        width: 100%;
-        margin-bottom: 40px;
-        z-index: -1;
-      }
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      .refrence_img {
-        width: 100%;
-        min-height: 500px;
-        background: url("/user/userImages/partials/upSection/refrenceImg.jpg");
-        z-index: -1;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
-      .refrence_img::before {
-        background-color: #151515;
-        content: "";
-        display: block;
-        opacity: 0.65;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-      .refrence_img h1 {
-        width: 100%;
-        text-align: center;
-        position: absolute;
-        top: 40%;
-        color: white;
-        font-family: sans-serif;
-        font-weight: 900;
-        font-size: 3rem;
-        opacity: 1;
-        z-index: 2;
-      }
+.main_page {
+  width: 100%;
+}
 
-      .refrence_img img {
-        width: 100%;
-        position: absolute;
-        bottom: 0px;
-        height: 200px;
-        z-index: 2;
-      }
+.header_img {
+  width: 100%;
+  margin-bottom: 40px;
+  z-index: -1;
+}
+
+.refrence_img {
+  width: 100%;
+  min-height: 500px;
+  background: url("/user/userImages/partials/upSection/refrenceImg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.refrence_img::before {
+  background-color: #151515;
+  content: "";
+  display: block;
+  opacity: 0.65;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Responsive h1 */
+.refrence_img h1 {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  opacity: 1;
+  z-index: 2;
+  padding: 10px;
+}
+
+/* Responsive image at the bottom */
+.refrence_img img {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 200px;
+  z-index: 2;
+}
+
+/* Media Queries for responsiveness */
+
+/* Tablets and smaller screens */
+@media only screen and (max-width: 992px) {
+  .refrence_img {
+    min-height: 400px;
+  }
+  .refrence_img h1 {
+    font-size: 2.5rem;
+    top: 35%;
+  }
+  .refrence_img img {
+    height: 180px;
+  }
+}
+
+/* Mobile screens */
+@media only screen and (max-width: 768px) {
+  .refrence_img {
+    min-height: 350px;
+  }
+  .refrence_img h1 {
+    font-size: 2rem;
+    top: 30%;
+  }
+  .refrence_img img {
+    height: 160px;
+  }
+}
+
+/* Small mobile screens */
+@media only screen and (max-width: 480px) {
+  .refrence_img {
+    min-height: 300px;
+  }
+  .refrence_img h1 {
+    font-size: 1.5rem;
+    top: 25%;
+  }
+  .refrence_img img {
+    height: 140px;
+  }
+}
+
+/* Extra small screens */
+@media only screen and (max-width: 360px) {
+  .refrence_img {
+    min-height: 250px;
+  }
+  .refrence_img h1 {
+    font-size: 1.2rem;
+    top: 20%;
+  }
+  .refrence_img img {
+    height: 120px;
+  }
+}
+
     </style>
   </head>
 

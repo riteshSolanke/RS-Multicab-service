@@ -2,3 +2,4 @@
 /.env
 /config/common/google-cloud-key.json
 /localDB/
+/dummey.html

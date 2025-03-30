@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="/user/userCss/renderDynamicDestinationPage.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
       :root {
         --destinationImg: url("<%= locals.targetedDestinationInfo && locals.targetedDestinationInfo.destinationImg ? locals.targetedDestinationInfo.destinationImg : '' %>");
@@ -31,5 +32,6 @@
     </div>
 
     <script src="/user/userJs/renderDynamicDestinationPage.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
   </body>
 </html>

@@ -241,28 +241,100 @@
   align-items: center;
   justify-content: center;
 }
+/* Responsive Styles for Different Screens */
 
-/* styling below 1080px */
-
-@media only screen and (max-width: 1080px) {
-  /* hello section */
-
+/* Tablet and Below (max-width: 992px) */
+@media only screen and (max-width: 992px) {
   .inner_hello .hello_upSection {
     flex-direction: column;
   }
   .hello_upSection h1 {
     width: 100%;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
   }
   .hello_upSection p {
     width: 100%;
   }
   .hello_downSection {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   .hello_child_ele {
     width: 100%;
+  }
+  .main_about_us {
+    width: 100%;
+  }
+  .main_about_us .main_about_img {
+    width: 100%;
+    background-size: cover;
+  }
+  .about_us_down_section_para h1 {
+    font-size: 2.5rem;
+    margin: 30px;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  .hello_upSection h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .hello_upSection p {
+    text-align: center;
+  }
+  .hello_downSection {
+    gap: 10px;
+  }
+  .hello_child_ele {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hello_child_ele img {
+    height: 60px;
+    width: 60px;
+  }
+  .about_us_down_section_para h1 {
+    font-size: 2rem;
+    margin: 20px;
+  }
+  .footer_bg_container .up_section_bg_container {
+    width: 100%;
+  }
+  .footer_bg_container .up_section_bg_container h3 {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .footer_bg_container h1 {
+    font-size: 1.8rem;
+  }
+  .down_section_bg_container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .down_section_bg_container .card {
+    width: 100%;
+  }
+}
+
+/* Small Mobile Screens (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  .hello_upSection h1 {
+    font-size: 1.8rem;
+  }
+  .about_us_down_section_para h1 {
+    font-size: 1.5rem;
+  }
+  .footer_bg_container .up_section_bg_container h3 {
+    width: 80%;
+  }
+  .down_section_bg_container {
+    flex-direction: column;
+  }
+  .down_section_bg_container .card {
+    width: 100%;
+    padding: 15px;
   }
 }

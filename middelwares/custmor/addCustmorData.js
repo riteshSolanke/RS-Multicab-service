@@ -16,7 +16,7 @@ const addCustmorData = async (req, res, next) => {
 
       // Fetch customer by `_id`
       const custmor = await Custmor.findOne({ custmorId: custmorId });
-      console.log("Fetched Customer:", custmor);
+      
 
       if (!custmor) {
         console.log("Customer not found for ID:", custmorId);

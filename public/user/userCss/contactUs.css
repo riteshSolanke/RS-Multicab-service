@@ -95,7 +95,7 @@ form textarea {
 
 .contact-info p {
     font-size: 14px;
-    color: #555;
+    color: #f4f0f0;
     margin-bottom: 15px;
 }
 
@@ -139,18 +139,55 @@ form textarea {
 }
 
 /* Responsive Design */
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
+    .contact-section {
+        padding: 40px 5%;
+    }
+    .heading {
+        font-size: 28px;
+    }
+    .contact-info h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 708px) {
     .container {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-
+    .contact-form, .contact-info {
+        min-width: 100%;
+    }
+    .heading {
+        font-size: 24px;
+    }
     .info-box {
         justify-content: center;
     }
+}
 
-    .contact-info {
+@media (max-width: 400px) {
+    .contact-section {
+        padding: 30px 5%;
+    }
+    .heading {
+        font-size: 22px;
+    }
+    form input, form textarea {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .submit-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .info-box {
+        flex-direction: column;
         text-align: center;
+    }
+    .info-box i {
+        margin-bottom: 10px;
     }
 }

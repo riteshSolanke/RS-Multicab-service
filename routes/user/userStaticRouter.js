@@ -3,6 +3,8 @@ const router = express.Router({ mergeParams: true });
 const addCustmorStaticData = require("../../middelwares/custmor/addCustmorStaticData");
 const addCustmorData = require("../../middelwares/custmor/addCustmorData");
 const {
+  renderHeader,
+  renderFooter,
   renderUserHomePage,
   renderAboutUsPage,
   renderPakagesPage,
@@ -26,8 +28,12 @@ const {
 } = require("../../controllers/user/userStaticPageController");
 const {getCarsData, getTargetedCarData }= require("../../middelwares/custmor/getCarData");
 const {getTargetedDestnationData} = require("../../middelwares/custmor/getDynamicDestinationData");
-const {getPackagesData}= require("../../middelwares/custmor/getPackagesData")
+const {getPackagesData}= require("../../middelwares/custmor/getPackagesData");
+const {getAllDestinationData} = require("../../middelwares/custmor/getDynamicDestinationData");
 
+
+router.get("/header",getAllDestinationData, renderHeader);
+router.get("/footer",getAllDestinationData, renderFooter);
 router.get("/", renderUserHomePage);
 router.get("/about", renderAboutUsPage);
 router.get("/packages",getPackagesData, renderPakagesPage);

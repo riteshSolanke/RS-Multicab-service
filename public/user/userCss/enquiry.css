@@ -1,3 +1,4 @@
+/* Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,32 +9,40 @@
   position: relative;
 }
 section {
-  position: absolute;
-  top: 0px;
+  /* position: absolute; */
+  top: 0;
 }
 
 .enquiry_main_page {
   width: 90%;
   margin: 20px auto;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
+/* Form Container */
 .form_container {
   width: 60%;
   display: flex;
   flex-direction: column;
   background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
+
 .form_container h3 {
   margin-bottom: 20px;
   color: #e24d04;
   font-family: sans-serif;
   font-weight: 600;
-  width: 300px;
   text-transform: uppercase;
   text-align: center;
   position: relative;
 }
+
 .form_container h3::before {
   content: "";
   display: block;
@@ -42,81 +51,112 @@ section {
   background: #e24d04;
   position: absolute;
   top: 40%;
-  left: 0px;
+  left: 0;
 }
-.form_container .form-group {
+
+.form-group {
   width: 90%;
-  /* border: 2px solid red; */
 }
 
 .form-group label {
   display: block;
   margin-left: 5px;
-  padding: 15px;
+  padding: 10px;
   font-weight: 600;
   color: rgb(97, 92, 92);
 }
-.form-group input {
+
+.form-group input,
+.form-group select {
   width: 100%;
   margin-bottom: 10px;
-  margin-left: 10px;
-  padding: 15px;
-
+  padding: 12px;
   border: 1px solid gainsboro;
-  /* box-shadow: 3px 2px 0px rgba(0, 0, 0, 0.1); */
+  border-radius: 5px;
 }
+
 .form-group input:focus {
   border: 2px solid red;
-  outline: none; /* Removes the default black border */
-}
-
-.form-group select {
-  margin: 10px;
-  padding: 10px;
+  outline: none;
 }
 
 .form_btn {
   background-color: orangered;
   margin: 20px;
-  color: rgb(247, 243, 243);
+  color: white;
   padding: 12px 20px;
-  border: 2px solid transparent;
-  border-radius: 3px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .form_btn:hover {
   background-color: orange;
-  cursor: pointer;
 }
 
-/* info_container */
-
+/* Info Container */
 .info_container {
   width: 30%;
+  text-align: center;
 }
+
 .bankInfo_container h3 {
-  width: 100%;
-  line-height: 30px;
-  font-weight: 600;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: rgb(64, 64, 67);
-  margin: 0px 20px 20px 0px;
-  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .bankInfo_container p {
   color: rgb(64, 61, 61);
-  margin: 10px;
-  padding: 5px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .bankInfo_container img {
-  min-width: 350px;
-  min-height: 300px;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
   border: 1px solid transparent;
-  margin-top: 40px;
-  background-size: contain;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1080px) {
+  .enquiry_main_page {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form_container {
+    width: 80%;
+  }
+  .info_container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 708px) {
+  .form_container {
+    width: 90%;
+  }
+  .info_container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .form_container {
+    width: 100%;
+    padding: 15px;
+  }
+  .form-group input,
+  .form-group select {
+    padding: 10px;
+  }
+  .form_btn {
+    width: 100%;
+    padding: 12px;
+  }
+  .bankInfo_container img {
+    width: 90%;
+  }
 }

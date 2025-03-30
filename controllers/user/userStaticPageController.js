@@ -3,7 +3,13 @@ const  Booking  = require("../../models/user/bookingModel");
 const {Enquiry} = require("../../models/user/enquiryModel")
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+async function renderHeader(req, res){
+  return res.render('user/headerPage')
+}
 
+async function renderFooter(req, res){
+  return res.render("user/footerPage");
+}
 
 async function renderUserHomePage(req, res) {
   return res.render("user/home");
@@ -221,6 +227,8 @@ async function saveEnquiryData(req, res){
 }
 
 module.exports = {
+  renderHeader,
+  renderFooter,
   renderUserHomePage,
   renderAboutUsPage,
   renderPakagesPage,

@@ -14,20 +14,20 @@ const {
   resetUserPassword,
 } = require("../../controllers/common/commonController");
 router.get("/", renderAdminIndexPage);
-router.get("/signin", renderSigninPage);
-router.get("/signup", renderSignupPage);
-router.get("/forgotPassword", renderForgetPasswordPage);
+router.get("/unauth/signin", renderSigninPage);
+router.get("/unauth/signup", renderSignupPage);
+router.get("/unauth/forgotPassword", renderForgetPasswordPage);
 // ------------------------Forget-password functionllity -----------------------------------
 
-router.post("/forgotPassword", verifyUserEmail);
-router.post("/verifyOtp", verifyUserOtp);
-router.post("/resetPassword", resetUserPassword);
+router.post("/unauth/forgotPassword", verifyUserEmail);
+router.post("/unauth/verifyOtp", verifyUserOtp);
+router.post("/unauth/resetPassword", resetUserPassword);
 
 // ---------------------------Local Strategy for passport ------------------------------
 
 // verify user login and signup credential
 
-router.post("/signin", async (req, res, next) => {
+router.post("/unauth/signin", async (req, res, next) => {
   passport.authenticate("local", async (err, user, info) => {
     if (err) {
       return res
@@ -105,60 +105,46 @@ router.post("/signin", async (req, res, next) => {
 
 // logout functionallity
 
-router.post("/logout", (req, res) => {
- 
+router.post("/unauth/logout", (req, res) => {
+  const serviceUrl = req.session?.custmorInfo?.serviceUrlLink || "unauth/signin";
 
-  if (req.session.custmor && req.session.custmorInfo && req.session.user) {
-    const serviceUrl = req.session.custmorInfo.serviceUrlLink;
-
-    return req.logout((err) => {
-      if (err) {
-        console.error("Logout error:", err);
-        return res.json({ message: "Error during user logout" });
-      }
-      return res.redirect(
-        `/${serviceUrl}/?status=success&message=You logout successfully`
-      );
-    });
-  }
-
+  // Logout the user
   req.logout((err) => {
     if (err) {
       console.error("Logout error:", err);
-      return res.status(500).render("/", { sms: "Error during logout" });
+      return res.status(500).json({ message: "Error during logout" });
     }
 
+    // Destroy the session
     req.session.destroy((err) => {
       if (err) {
         console.error("Session destroy error:", err);
         return res.status(500).json({ message: "Error destroying session" });
       }
 
+      // Clear the session store
       req.sessionStore.destroy(req.sessionID, (err) => {
         if (err) {
           console.error("Session store error:", err);
-          return res
-            .status(500)
-            .json({ message: "Error clearing session store" });
+          return res.status(500).json({ message: "Error clearing session store" });
         }
 
+        // Clear session cookie
         res.clearCookie("connect.sid", {
           path: "/",
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
         });
-
+        
         console.log("Session destroyed successfully");
-        return res.redirect(
-          "/unauth/signin?status=success&message=You logged out successfully"
-        );
+        return res.redirect(`/${serviceUrl}/?status=success&message=You logged out successfully`);
       });
     });
   });
 });
 
 // signup functionallity
-router.post("/signup", async function (req, res) {
+router.post("/unauth/signup", async function (req, res) {
   const { name, email, password } = req.body;
   const existingUser = await User.findOne({ email: email });
   if (existingUser) {
@@ -185,34 +171,6 @@ router.post("/signup", async function (req, res) {
   }
 });
 
-// -----------------------Google-Auth functionallity for passport-----------------------------
 
-router.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-
-router.get(
-  "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
-  (req, res) => {
-    return res.redirect("/authuser/authIndex");
-  }
-);
-
-// -----------------------github-Auth functionallity for passport-----------------------------
-
-router.get(
-  "/auth/github",
-  passport.authenticate("github", { scope: ["profile", "email"] })
-);
-
-router.get(
-  "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/signin" }),
-  (req, res) => {
-    return res.redirect("/authuser/authIndex");
-  }
-);
 
 module.exports = router;

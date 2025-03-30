@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/user/userCss/onlineBooking.css" />
   </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <body>
     <div class="main_page">
       <!-- navbar -->
@@ -30,10 +31,10 @@
                 <h2><%= carInfo.carName %></h2>
               </td>
               <td>
-                <p><%= carInfo.seatCapacity %> Seats</p>
+                <p><%= carInfo.seatCapacity %> </p>
               </td>
               <td>
-                <p><%= carInfo.bagCapacity %> Bags</p>
+                <p><%= carInfo.bagCapacity %> </p>
               </td>
               <td>
                 <p><%= carInfo.isAC %></p>
@@ -63,5 +64,6 @@
       <footer><%- include('partials/footer') %></footer>
     </div>
     <script src="/user/userJs/onlineBooking.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
   </body>
 </html>

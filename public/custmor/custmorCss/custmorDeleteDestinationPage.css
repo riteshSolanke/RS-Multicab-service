@@ -11,6 +11,7 @@ body {
 }
 .main_page {
   width: 100vw;
+  
   margin: 0 auto;
   display: flex;
 }
@@ -32,25 +33,20 @@ body {
   margin-bottom: 20px;
 }
 
-header {
+ header {
   background-color: #2a332b;
   color: white;
-  margin-bottom: 40px;
-  padding: 20px;
+
   text-align: center;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  position: sticky;
-  top: 0px;
-}
+ 
+ 
+} 
 
 header h1 {
   margin: 20px;
   font-size: 24px;
 }
 
-/* Style for the delete button */
 #deleteSelectedDestination {
   background-color: #f44336;
   color: white;
@@ -70,26 +66,29 @@ header h1 {
   width: 100%;
   margin: 10px auto;
   display: flex;
-
   gap: 10px;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
 }
+.destination{
+  width: 30%;
+}
 
 .destination_windows figure {
+  width: 100%;
   margin: 10px auto;
   text-align: center;
   position: relative;
 }
 
 figure > img {
-  height: 200px;
-  width: 200px;
+ 
+  width: 100%;
   border: 2px solid transparent;
   background-color: white;
   padding: 5px;
-  /* box-shadow: 2px 2px 5px gray; */
+ 
 }
 
 figure {
@@ -110,7 +109,7 @@ figure > div > a {
   font-weight: 700;
   margin: 0 15px;
   padding: 5px;
-  background-color: palevioletred;
+  background-color: rgb(225, 40, 40);
   text-transform: uppercase;
   transition: all 0.9s ease-in-out;
   position: absolute;
@@ -120,4 +119,4 @@ figure > div > a {
 figure > div > a:hover {
   background-color: pink;
   color: blueviolet;
-}
+} 

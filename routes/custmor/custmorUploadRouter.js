@@ -2,7 +2,6 @@ const express = require("express");
 const multer = require("multer");
 const router = express.Router({ mergeParams: true });
 
-const upload = require("../../config/custmor/multerUploadConfig");
 const {
   uploadProfilePic,
   uploadSliderImages,
@@ -11,12 +10,12 @@ const {
   uploadDestinationData,
 } = require("../../controllers/custmor/custmorUploadController");
 
-// Uploading Images Data To Destination
-router.post(
-  "/uploadProfilePic",
-  upload.single("website-logo"),
-  uploadProfilePic
-);
+
+
+const {upload} = require("../../config/custmor/multerUploadConfig");
+
+router.post("/uploadProfilePic", upload.single("website-logo"), uploadProfilePic);
+
 router.post(
   "/uploadSliderImgs",
   upload.fields([
@@ -41,16 +40,7 @@ router.post(
   uploadHomePopDestinationData
 );
 
-router.post(
-  "/uploadCarBookingData",
-  upload.single("carImg"),
-  uploadCarBookingData
-);
-
-router.post(
-  "/uploadDestinationData",
-  upload.single("destinationImg"),
-  uploadDestinationData
-);
+router.post("/uploadCarBookingData", upload.single("carImg"), uploadCarBookingData);
+router.post("/uploadDestinationData", upload.single("destinationImg"), uploadDestinationData);
 
 module.exports = router;

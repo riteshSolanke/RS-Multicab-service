@@ -67,7 +67,7 @@ async function createNewCustmor(req, res) {
     await custmorData.save();
 
     return res.redirect(
-      "/admin/addCustmor?status=success&message=New customer created successfully"
+      "/admin/custmors?status=success&message=New customer created successfully"
     );
   } catch (err) {
     console.error("Error creating customer:", err);
@@ -83,14 +83,14 @@ async function adminManualCustmorLogin(req, res) {
   }
  
   const custmor = await User.findById(req.params.id);
-  console.log(custmor);
+  
 
   if (!custmor) {
-    return res.status(404).json({ message: "Customer not found" });
+    return res.redirect("/admin/custmors?status=error&message=Error during mannual login by admin pls refresh page");
   }
 
   custmor.adminManualCustmorLogin= true;
-  console.log(custmor);
+ 
   // Remove previous customer session
   req.session.custmor = null;
   // Assign new customer session (but don't modify req.user)

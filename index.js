@@ -33,7 +33,7 @@ const {getAllDestinationData} = require("./middelwares/custmor/getDynamicDestina
 // common Router...
 
 const commonUserRouter = require("./routes/common/commonRouter");
-app.use("/unauth", commonUserRouter);
+app.use("/", commonUserRouter);
 
 // admin Router...
 

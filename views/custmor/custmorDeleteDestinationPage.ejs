@@ -17,14 +17,29 @@
         <%- include('partials/custmorHeader') %>
         <div class="container">
           <header>
-            <h1>
-              Click the checkbox and submit the button to delete the existing
-              destination
+            <h1 width="50%">
+              Click the delete button on the destiantion window to delete the destination infomation form your website
             </h1>
-            <button id="deleteSelectedDestination">Delete</button>
+           
           </header>
 
-          <div class="destination_windows"></div>
+          <div class="destination_windows">
+            
+            <% if (locals.destinationInfo) { %>
+
+
+              <% destinationInfo.forEach(destination => { %>
+    
+                <div class="destination"><figure>
+                  <img src="<%= destination.destinationImg%>" alt="">
+                  <div class="innerDiv"><a href="/custmor/services/deleteDestination/<%= destination._id %>">Delete</a></div>
+                           </figure></div>
+               
+              <% }) %>
+    
+             
+            <% } %>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,5 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GitHubStrategy = require("passport-github2").Strategy;
 const User = require("../../models/commonModels/commonUserModel");
 const bcrypt = require("bcrypt");
 
@@ -31,78 +29,7 @@ passport.use(
   )
 );
 
-// ---------------------google-auth configuration---------------------------
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL:
-        "https://passport-js-authentication.onrender.com/user/auth/google/callback",
-      scope: ["profile", "email"],
-    },
-    async function (accessToken, refreshToken, profile, done) {
-      try {
-        let user = await User.findOne({ googleId: profile.id });
-        if (!user) {
-          user = await User.create({
-            googleId: profile.id,
-            email:
-              profile.emails && profile.emails[0]
-                ? profile.emails[0].value
-                : "No email provided",
-            name: profile.displayName,
-            profilePicture:
-              profile.photos && profile.photos[0]
-                ? profile.photos[0].value
-                : "No picture",
-          });
-        }
-        return done(null, user);
-      } catch (err) {
-        return done(err);
-      }
-    }
-  )
-);
-
-// ---------------------github-auth configuration---------------------------
-
-passport.use(
-  new GitHubStrategy(
-    {
-      clientID: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL:
-        "https://passport-js-authentication.onrender.com/user/auth/github/callback",
-      scope: ["user:email"],
-    },
-    async function (accessToken, refreshToken, profile, done) {
-      console.log(profile);
-      try {
-        let user = await User.findOne({ githubId: profile.id });
-        if (!user) {
-          user = await User.create({
-            githubId: profile.id,
-            email:
-              profile.emails && profile.emails[0]
-                ? profile.emails[0].value
-                : "No email provided",
-            name: profile.username,
-            profilePicture:
-              profile.photos && profile.photos[0]
-                ? profile.photos[0].value
-                : "No Picture",
-          });
-        }
-        return done(null, user);
-      } catch (err) {
-        return done(err);
-      }
-    }
-  )
-);
 
 //--------------------- Serializetion and Deserializetion of user------------------------
 

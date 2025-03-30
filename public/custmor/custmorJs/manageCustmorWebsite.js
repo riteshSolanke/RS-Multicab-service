@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((data) => {
         if (data.message) {
-          window.location.href = `/custmor/addDestination?status=success&message=${data.message}`
+          window.location.href = `/custmor/manageDestination?status=success&message=${data.message}`
 
-          window.location.reload();
+          
         }
       })
       .catch((err) => {

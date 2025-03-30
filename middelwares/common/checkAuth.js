@@ -12,6 +12,11 @@ async function attachUserInfo(req, res, next) {
       console.log("Custmor Authenticated via Passport ");
       req.session.custmor = req.user;
       next();
+    }else{
+
+      res.redirect(
+        "/unauth/signin?status=error&message=Access Denied: You are not Authenticated To User Custmor Routes"
+      );
     }
   } catch (error) {
     console.error("Error in attachUserInfo middleware:", error);

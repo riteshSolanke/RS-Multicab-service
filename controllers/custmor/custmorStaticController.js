@@ -57,6 +57,15 @@ async function renderManagePackagePage(req, res){
   return res.render("custmor/custmorManagePackage")
 }
 
+async function renderCustmorAddDriverPage(req, res){
+  res.locals.headingName = "Add Drivers To service"
+  return res.render("custmor/custmorAddDriverPage");
+}
+async function renderCustmorDriverPage(req, res){
+  res.locals.headingName = "Existing Driver In Service"
+  return res.render("custmor/custmorDriverPage");
+}
+
 
 
 module.exports = {
@@ -71,5 +80,7 @@ module.exports = {
   renderDestinationControlPage,
   renderCustmorBookingPage,
   renderCheckEnquiryPage,
-  renderManagePackagePage
+  renderManagePackagePage,
+  renderCustmorAddDriverPage,
+  renderCustmorDriverPage
 };

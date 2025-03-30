@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/user/userCss/contactUs.css" />
   </head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <body>
     <div class="main_page">
       <!-- navbar -->
@@ -38,7 +39,8 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h4>Our Address</h4>
-                        <p><strong>Mauli Cabs</strong><br>Pune Alandi Road, Wadmukhwadi Charholi Bk, Alandi Devachi, Khed, Pune 412105</p>
+                        <p><strong><%= locals.custmorInfo?.serviceName || "N/A" %></strong><br><%= locals.custmorInfo?.address ||
+                            "N/A" %></p>
                     </div>
                 </div>
 
@@ -46,7 +48,8 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h4>Email Us</h4>
-                        <p>booking@maulicabs.com</p>
+                        <p><%= locals.custmorInfo?.email ||
+                            "N/A" %></p>
                     </div>
                 </div>
 
@@ -54,7 +57,9 @@
                     <i class="fas fa-phone"></i>
                     <div>
                         <h4>Talk to us, Call now</h4>
-                        <p>7972733209 / 9763272775</p>
+                        <p><%= locals.custmorInfo?.phone1 ||
+                            "N/A" %> /<%= locals.custmorInfo?.phone2 ||
+                            "N/A" %></p>
                     </div>
                 </div>
 
@@ -73,5 +78,6 @@
       <footer><%- include('partials/footer') %></footer>
     </div>
     <script src="/user/userJs/contactUs.js"></script>
+    <script src="/common/commonJs/alertMsg.js"></script>
   </body>
 </html>

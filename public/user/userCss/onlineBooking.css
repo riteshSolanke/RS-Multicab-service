@@ -1,3 +1,4 @@
+/* Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +11,15 @@ h1 {
   color: #101f46;
   margin: 20px;
 }
+
 .manageingButtons {
   display: flex;
   gap: 20px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
+
 .manageingButtons button {
   padding: 10px;
   border: 2px solid transparent;
@@ -23,21 +27,26 @@ h1 {
   margin: 5px;
   transition: all 0.3s ease-in-out;
 }
+
 .manageingButtons button:hover {
   background-color: orange;
 }
+
 .manageingButtons button a {
   text-decoration: none;
   color: black;
   font-weight: 600;
 }
+
 .manageingButtons button:hover a {
   color: white;
   cursor: pointer;
 }
+
 .main_page_table {
   width: 90%;
   margin: 30px auto;
+  overflow-x: auto; /* Ensures table remains scrollable on small screens */
 }
 
 table {
@@ -54,10 +63,12 @@ td {
   font-weight: 600;
   text-align: center;
 }
+
 #carImg {
   max-width: 170px;
   height: auto;
 }
+
 td > img {
   margin: 10px;
   max-width: 30px;
@@ -89,4 +100,114 @@ tr > td > button {
 tr > td > button:hover {
   background-color: rgb(237, 204, 144);
   cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Extra Small screens (max-width: 399px) */
+@media (max-width: 399px) {
+  .manageingButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .manageingButtons button {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  #carImg {
+    max-width: 120px;
+  }
+}
+
+/* Small screens (400px and up) */
+@media (min-width: 400px) {
+  .manageingButtons {
+    gap: 15px;
+  }
+
+  .manageingButtons button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  #carImg {
+    max-width: 140px;
+  }
+}
+
+/* Medium screens (708px and up) */
+@media (min-width: 708px) {
+  .manageingButtons {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .manageingButtons button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #carImg {
+    max-width: 150px;
+  }
+}
+
+/* Large screens (1080px and up) */
+@media (min-width: 1080px) {
+  .main_page_table {
+    width: 80%;
+  }
+
+  .manageingButtons button {
+    padding: 14px;
+    font-size: 18px;
+  }
+
+  th, td {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  #carImg {
+    max-width: 170px;
+  }
+}
+
+/* Extra Large Screens (1600px and up) */
+@media (min-width: 1600px) {
+  .main_page_table {
+    width: 70%;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .manageingButtons button {
+    padding: 16px;
+    font-size: 20px;
+  }
+
+  th, td {
+    padding: 14px;
+    font-size: 18px;
+  }
 }
