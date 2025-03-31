@@ -104,28 +104,39 @@ router.post("/unauth/signin", async (req, res, next) => {
 });
 
 // logout functionallity
-
 router.post("/unauth/logout", (req, res) => {
-  const serviceUrl = req.session?.custmorInfo?.serviceUrlLink || "unauth/signin";
+  if (!req.user) {
+    return res.redirect("/unauth/signin?status=error&message=No active session found");
+  }
+
+  let redirectPath = "/unauth/signin"; // Default redirect path
+
+  // ✅ If user is a normal "user", redirect to their service URL
+  if (req.user.role === "user" && req.session?.custmorInfo?.serviceUrlLink) {
+    redirectPath = `/${req.session.custmorInfo.serviceUrlLink}/?status=success&message=You logged out successfully`;
+  }
+
+  console.log(`🔴 Logging out user: ${req.user.email} (Role: ${req.user.role})`);
+  console.log(`🔗 Redirecting to: ${redirectPath}`);
 
   // Logout the user
   req.logout((err) => {
     if (err) {
-      console.error("Logout error:", err);
+      console.error("❌ Logout error:", err);
       return res.status(500).json({ message: "Error during logout" });
     }
 
     // Destroy the session
     req.session.destroy((err) => {
       if (err) {
-        console.error("Session destroy error:", err);
+        console.error("❌ Session destroy error:", err);
         return res.status(500).json({ message: "Error destroying session" });
       }
 
       // Clear the session store
       req.sessionStore.destroy(req.sessionID, (err) => {
         if (err) {
-          console.error("Session store error:", err);
+          console.error("❌ Session store error:", err);
           return res.status(500).json({ message: "Error clearing session store" });
         }
 
@@ -135,13 +146,14 @@ router.post("/unauth/logout", (req, res) => {
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
         });
-        
-        console.log("Session destroyed successfully");
-        return res.redirect(`/${serviceUrl}/?status=success&message=You logged out successfully`);
+
+        console.log("✅ Session destroyed successfully, redirecting...");
+        return res.redirect(redirectPath);
       });
     });
   });
 });
+
 
 // signup functionallity
 router.post("/unauth/signup", async function (req, res) {

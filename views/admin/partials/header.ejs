@@ -50,9 +50,12 @@
       <h1><%= locals.headingName %></h1>
       <div class="header-actions">
       
-        <button class="btn">
-          <a href="/unauth/logout">Logout</a>
-        </button>
+        
+          <form action="/unauth/logout" method="POST" style="display:inline;">
+            <button class="btn" type="submit">Logout</button>
+          </form>
+          
+       
         <% if (locals.custmorInfo ) { %>
         <button class="btn">
           <a href="/custmor/<%= locals.custmorInfo.id %>/"> Home</a>
