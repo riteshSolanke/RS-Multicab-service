@@ -34,22 +34,35 @@ passport.use(
 //--------------------- Serializetion and Deserializetion of user------------------------
 
 passport.serializeUser((user, done) => {
-  console.log("Serializing user: ", { id: user.id, email: user.email });
-  done(null, user.id);
+  console.log("🔵 SERIALIZING USER:", user._id);
+  done(null, user._id); // Ensure only user ID is stored
 });
+
+
 passport.deserializeUser(async (id, done) => {
+  console.log("🔄 Deserializing user ID:", id); // Debugging log
+  
+  if (!id) {
+    console.error("❌ No user ID found in session!");
+    return done(null, false);
+  }
+
   try {
     const user = await User.findById(id);
+    
     if (!user) {
-      console.error("User not found during deserialization.");
+      console.error("❌ User not found during deserialization.");
       return done(null, false);
     }
 
+    console.log("✅ User deserialized successfully:", user.email);
     done(null, user);
   } catch (err) {
-    console.error("Error during deserialization:", err);
+    console.error("❌ Error during deserialization:", err);
     done(err, null);
   }
 });
+
+
 
 module.exports = passport;
